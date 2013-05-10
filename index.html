@@ -41,12 +41,6 @@
 			minuto_minuto();
 			CargarNoticiasHomeGal();
 			
-        var options = { frequency: 100000 };
-        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
-    
-			
-			
-			
 		}
 		else
 		{
@@ -56,9 +50,7 @@
 	});	
 });
 	
-
-*/
-    
+	
 
          /*
     	$(document).ready(function() {
@@ -71,14 +63,7 @@
 					minuto_minuto();
 					//CargarNoticiasHomeGal();
 					
-					
-					
-				
-				
             });
-			
-			
-			
 			*/
     </script>
     <script>
@@ -95,54 +80,8 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
 		var conex=states[networkState];
     }
-	/*Geolocalizaicon*/
-	  var watchID = null;
-    
-
-    function onSuccess(position) {
-        var element = document.getElementById('map_canvas');
-        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
-                            'Longitude: ' + position.coords.longitude     + '<br />' +
-                            '<hr />'      + element.innerHTML;
-    }
-    function onError(error) {
-        alert('code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-    }
-	/*Geo*/
-	
-	
-	 function initialize() 
-	  {
-
-		  document.addEventListener("deviceready",function()
-		  {
-			  //coneccion a  geolocalizacion
-			  navigator.geolocation.getCurrentPosition(function (loc)
-			  {
-			  
-			  var myLatlng = new google.maps.LatLng(19.04327,-98.22035);
-			  //var myLatlng = new google.maps.LatLng(loc.coords.latitude,loc.coords.longitude);
-			  var mapOptions = {
-					zoom: 18,
-					center: myLatlng,
-					mapTypeId: google.maps.MapTypeId.ROADMAP
-			  }
-			  var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
-			
-			  var marker = new google.maps.Marker({
-				  position: myLatlng,
-				  map: map,
-				  title:""
-			  });
-			  }, function (err){
-				  navigator.notification.alert(err.code, null, 'Error', 'Error!!');
-				  });
-		  }, false);
-      }
 	  
 	  
 	  
