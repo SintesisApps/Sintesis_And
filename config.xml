@@ -58,5 +58,12 @@
     <gap:splash src="imagenes/splashscreen/mdpi.png"     gap:platform="ios"     width="1024" height="768" />
     <gap:splash src="imagenes/splashscreen/ldpi.png" gap:platform="winphone" />
 	
+	
+	<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
+	<plugin name="NetworkStatus" value="CDVConnection" />
+
+
+	
+	
 	<access origin="*" />
 </widget>

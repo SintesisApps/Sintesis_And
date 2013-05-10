@@ -20,26 +20,41 @@
 	<link href="js/galeria/photoswipe.css" type="text/css" rel="stylesheet" />
 	<script type="text/javascript" src="js/galeria/lib/klass.min.js"></script>
 	<script type="text/javascript" src="js/galeria/code.photoswipe-3.0.4.min.js"></script>
-
-
-<!--  galeria-->
-
-    
-    
-    <script type="text/javascript">
-	
-
-	</script>
-
-<!-- galeria-->
-    
-    
 <!-- geolocalizacion -->
-<script type="text/javascript"
-      src="http://maps.googleapis.com/maps/api/js?sensor=true">
-    </script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=true"></script>
+
+
     <script type="text/javascript">
-      function initialize() 
+         
+    	$(document).ready(function() {
+			if(navigator.connection.type != Connection.NONE)
+	{//return true; // si esta conectado
+				//return navigator.connection.type;// regresamos el tipo de conexion
+				alert("conectado");
+	}	
+	else
+	{
+		//return  false;
+		alert("no conectado");
+	}
+				
+				//alert("conexion:"+navigator.connection.type);
+					slidePrincipal();
+					slideMiniatura();
+					slideVertical();
+					//galeriaImagenes();
+					//galeria_video('nacionales');	
+					minuto_minuto();
+					//CargarNoticiasHomeGal();
+					
+					
+					
+				
+				
+            });
+    </script>
+    <script>
+	 function initialize() 
 	  {
 
 		  document.addEventListener("deviceready",function()
@@ -67,29 +82,6 @@
 				  });
 		  }, false);
       }
-    </script>
-    <!-- carga de noticias -->
-    <script>
-	
-		
-			$(document).ready(function() {
-				
-				//alert("conexion:"+navigator.connection.type);
-					slidePrincipal();
-					slideMiniatura();
-					slideVertical();
-					//galeriaImagenes();
-					//galeria_video('nacionales');	
-					minuto_minuto();
-					//CargarNoticiasHomeGal();
-					
-					
-					
-				
-				
-            });
-			
-			
 			function CargarNoticiasHomeGal()
 			{
 				$.ajax({
@@ -420,14 +412,7 @@ function LeerNota(id)
 
 
 </script>
-<!--<script>
 
-function mensaje()
-{
-	alert("jljljlj");
-	$(".Video").hide();
-}
-</script>-->
 
  <script>
    //setInterval(" window.location.reload();",10000);
@@ -436,8 +421,8 @@ function mensaje()
   </script>
 
 </head>
-<body onload="initialize()">
-<!--<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
+<body>
+<!--onload="initialize()"<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
 
 <!-- Home -->
 <div id="home" class="content" >
@@ -615,7 +600,7 @@ function mensaje()
 </div>
 <!--Secciones--> 
 
-<!--Galeria de Fotos-->
+<!--Galeria de Fotos--><!--
 <div id="galeria" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
  
   <div class="HeaderAlternativo">
@@ -632,11 +617,12 @@ function mensaje()
 
 </div>
 
-
+-->
 
 <!--Galeria de Fotos-->
 
 <!--Ubicacion-->
+<!--
 <div id="ubicacion" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
   <div class="HeaderAlternativo">
     <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
@@ -654,6 +640,7 @@ function mensaje()
 <!-- Ubicacion-->
 
 <!--Video-->
+<!--
 <div id="video" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
   <div class="HeaderAlternativo">
     <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
@@ -663,7 +650,7 @@ function mensaje()
   <div style="height:93.5%; overflow:hidden;">
     <div class="contvideogaleria">
     
-     <!-- se carga cotenido de php -->
+
     </div>
     <script type="text/javascript">
 function cambiarvideo(url,titulo){
@@ -673,12 +660,13 @@ return false;
 </script> 
   </div>
 </div>
-
+-->
 
 <!--Video-->
 
 
 <!--gia Nav-->
+<!--
 <div id="guia" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
   <div class="HeaderAlternativo">
     <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
@@ -690,7 +678,7 @@ return false;
     </div>
  
   </div>
-</div>
+</div>-->
 <!-- guia nav--> 
 
 <!--IMPRESO -->
@@ -834,6 +822,7 @@ function ImprimirImpresoPortada()
         </div>
 	</div>
 </div>
+-->
 <!--Impreso--> 
 
 
@@ -1069,7 +1058,7 @@ function ImprimirImpresoTodas(plaza)
 </div>
 <!--Footer-->
 
-<script>
+<script>/*
       jQuery(document).ready(function($) {
 
   $(".SlidePrincipal").royalSlider({
@@ -1090,8 +1079,7 @@ function ImprimirImpresoTodas(plaza)
   
   
   });
-  
-  /* 3D Flow demos */
+
 $(function(){
 
 
@@ -1103,7 +1091,7 @@ tdFlow: {}
 })
 
 })
-
+*/
     </script> 
 </div>
 </body>
