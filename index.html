@@ -665,7 +665,7 @@ onload="initialize()"
 <!-- Ubicacion phone-->
 
 <!--Video-->
-<!--
+
 <div id="video" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
   <div class="HeaderAlternativo">
     <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
@@ -674,18 +674,17 @@ onload="initialize()"
   </div>
   <div style="height:93.5%; overflow:hidden;">
     <div class="contvideogaleria">
-    
+    		<div data-role="popup" id="popupVideo" data-overlay-theme="a" data-theme="d" data-tolerance="15,15" class="ui-content">
+
+    <iframe src="http://player.vimeo.com/video/41135183" width="497" height="298" seamless></iframe>
+	 
+</div>
 
     </div>
-    <script type="text/javascript">
-function cambiarvideo(url,titulo){
-  document.getElementById('videogaleria').innerHTML = '<div class="VideoTituloPrincipal"><strong>'+titulo+'</strong></div><object width="100%" height="49%"><param name="movie" value="'+url+'?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=1&modestbranding=1"/><param value="true" name="allowFullScreen"/><param value="always" name="allowscriptaccess"/><param value="transparent" name="wmode"/><embed width="100%" height="49%" wmode="transparent"  allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="'+url+'?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=1&showinfo=0&modestbranding=1"/></object>';
-return false;
-}
-</script> 
+
   </div>
 </div>
--->
+
 
 <!--Video-->
 
@@ -1101,19 +1100,7 @@ function ImprimirImpresoTodas(plaza)
   
   
   });
-/*
-$(function(){
 
-
-td1 = jQuery('.td1').swiper({
-slidesPerSlide:3,
-loop:true,
-//Enable 3D Flow
-tdFlow: {}
-})
-
-})
-*/
     </script> 
 </div>
 </body>
