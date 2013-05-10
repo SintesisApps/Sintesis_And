@@ -25,7 +25,30 @@
 
 
     <script type="text/javascript">
-	document.addEventListener("deviceready", onDeviceReady, false);
+	$(document).ready(function(e){
+	document.addEventListener("deviceready", function(){
+		
+		var  conexion =checkConnection();
+		if(conexion=="WiFi connection")
+		{
+			alert("conectado");
+			slidePrincipal();
+			slideMiniatura();
+			slideVertical();
+			//galeriaImagenes();
+			//galeria_video('nacionales');	
+			minuto_minuto();
+			//CargarNoticiasHomeGal();
+					
+		}
+		else
+		{alert("noconectado");}
+		
+	
+	});	
+});
+	
+	/*document.addEventListener("deviceready", onDeviceReady, false);
 
     // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
     //
@@ -45,8 +68,11 @@
 		}
 		else
 		{alert("noconectado");}
-    }
+    }*/
+/*
 
+
+*/
     
 
          /*
@@ -64,7 +90,11 @@
 					
 				
 				
-            });*/
+            });
+			
+			
+			
+			*/
     </script>
     <script>
 	
@@ -80,7 +110,7 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        alert('Connection type: ' + states[networkState]);
+        //alert('Connection type: ' + states[networkState]);
 		var conex=states[networkState];
     }
 	
