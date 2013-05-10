@@ -28,8 +28,7 @@
 	$(document).ready(function(e){
 	document.addEventListener("deviceready", function(){
 		
-		var  conexion =checkConnection();
-		if(conexion=="WiFi connection")
+		if(navigator.connection.type != Connection.NONE)
 		{
 			alert("conectado");
 			slidePrincipal();
@@ -39,11 +38,12 @@
 			//galeria_video('nacionales');	
 			minuto_minuto();
 			//CargarNoticiasHomeGal();
-					
+			
 		}
 		else
-		{alert("noconectado");}
-		
+		{
+			alert("No conectado");
+		}
 	
 	});	
 });
@@ -110,7 +110,7 @@
         states[Connection.CELL_4G]  = 'Cell 4G connection';
         states[Connection.NONE]     = 'No network connection';
 
-        //alert('Connection type: ' + states[networkState]);
+        alert('Connection type: ' + states[networkState]);
 		var conex=states[networkState];
     }
 	
