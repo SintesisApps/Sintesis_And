@@ -39,7 +39,7 @@
 			slidePrincipal();
 			slideMiniatura();
 			slideVertical();
-			//galeria_video('nacionales');	
+			galeria_video('nacionales');	
 			minuto_minuto();
 			CargarNoticiasHomeGal();
 			
@@ -162,7 +162,7 @@
 				});
 			}
 			
-			/*function galeria_video(plaza)
+			function galeria_video(plaza)
 			{
 
 				$.ajax({
@@ -176,7 +176,7 @@
 				$('.contvideogaleria').html(message);
 				}
 				});
-			}*/
+			}
 			
 			function minuto_minuto()
 			{//alert("min");
@@ -484,7 +484,7 @@ onload="initialize()"
     </div>
   </div>
   <!--Contenedor Minuti a Minuto Video y Suplementos--> 
-  </div></div>
+  
 </div>
 
 <!-- Home --> 
@@ -529,6 +529,8 @@ onload="initialize()"
           
           </div>
         </div>-->
+      
+      
    		 </div>
   
   
@@ -563,11 +565,18 @@ onload="initialize()"
 
   </div>
     <!--Slide Principal Plaza-->
-    <div class="ContenedorPrincipalSeccion"></div></div>
+    <div class="ContenedorPrincipalSeccion">
+  
+          
+          
+      </div>
+    </div>
     <!--Slide Principal Plaza--> 
     
     <!--Slide Vertical Seccion-->
-    <div class="DivVertical" id="vertical_seccion"></div>
+    <div class="DivVertical" id="vertical_seccion">
+    
+    </div>
     <!--Slide Vertical Seccion--> 
     
     <!--Contenedor Minuto a Minuto Video y Suplementos-->
@@ -653,19 +662,19 @@ onload="initialize()"
  
   </div>
 </div>
-<!-- Ubicacion phone-->
+<!-- Ubicacion-->
 
 <!--Video-->
-
+<!--
 <div id="video" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
   <div class="HeaderAlternativo">
     <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
     <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
     
   </div>
-  <div style="height:100%; overflow:hidden;">
+  <div style="height:93.5%; overflow:hidden;">
     <div class="contvideogaleria">
-    	
+    
 
     </div>
     <script type="text/javascript">
@@ -676,7 +685,7 @@ return false;
 </script> 
   </div>
 </div>
-
+-->
 
 <!--Video-->
 
@@ -1046,8 +1055,8 @@ function ImprimirImpresoTodas(plaza)
 <!--Panel de Secciones--> 
 
 
-<!--Footer style="position:fixed; bottom:0; vertical-align:top"-->
-<div class="HeaderAlternativo" id="footer" >
+<!--Footer-->
+<div class="HeaderAlternativo" style="position:fixed; bottom:0; vertical-align:top" id="pie_pag">
   
 <div style=" display:inline-block; text-align:center; position:absolute; z-index:-1; width:100%;"> <a href="#impreso" onClick="ImprimirImpresoPortada();"> <img src="imagenes/iconos/azules/impreso@2x.png" width="50" > </a> </div>
   
@@ -1092,7 +1101,19 @@ function ImprimirImpresoTodas(plaza)
   
   
   });
+/*
+$(function(){
 
+
+td1 = jQuery('.td1').swiper({
+slidesPerSlide:3,
+loop:true,
+//Enable 3D Flow
+tdFlow: {}
+})
+
+})
+*/
     </script> 
 </div>
 </body>
