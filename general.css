@@ -33,9 +33,10 @@ body{
 	
 #pie_pag
 {/*style="position:fixed; bottom:0; vertical-align:top"*/
-	position:fixed;
+	position:absolute;
 	 bottom:0; 
-	 vertical-align:top; 
+	 vertical-align:top;
+	 clear:both;
 	
 }
 .DialogoPlaza{
