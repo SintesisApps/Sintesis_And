@@ -17,6 +17,14 @@ body{
 	width:100%;
 	
 	}
+
+
+#div
+{
+	position:absolute;
+	width:1280px;
+	height:697px;	
+}
 	
 .HeaderAlternativo{
 	background-image:url(imagenes/barra.png);
