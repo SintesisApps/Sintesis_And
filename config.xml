@@ -61,6 +61,8 @@
 	
 	<plugin name="NetworkStatus" value="org.apache.cordova.NetworkManager" />
 	<plugin name="NetworkStatus" value="CDVConnection" />
+	<uses-permission android:name="android.permission.INTERNET"/>
+
 
 
 	
