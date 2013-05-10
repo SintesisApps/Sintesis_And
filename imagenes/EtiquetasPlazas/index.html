@@ -1,0 +1,1156 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Síntesis</title>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=.5, maximum-scale=1.0, user-scalable=yes" name="viewport" />
+
+<link href="general.css" rel="stylesheet">
+<link href="css/transiciones.css" rel="stylesheet">
+<link href="css/alerta.css" rel="stylesheet" type="text/css" />
+<script src="phonegap.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<!--Slide-->
+<link href="slide/royalslider.css" rel="stylesheet">
+<script type="text/javascript" async src="slide/ga.js"></script>
+<script src="slide/jquery.royalslider.min.js?v=9.3.5"></script>
+
+<!--Slide-->
+	<link href="js/galeria/photoswipe.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/galeria/lib/klass.min.js"></script>
+	<script type="text/javascript" src="js/galeria/code.photoswipe-3.0.4.min.js"></script>
+	<script type="text/javascript">
+
+		(function(window, PhotoSwipe){
+		
+			document.addEventListener('DOMContentLoaded', function(){
+			
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+					
+					
+					// onBeforeShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeShow, function(e){
+						console.log('onBeforeShow');
+					});
+					
+					// onShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onShow, function(e){
+						console.log('onShow');
+					});
+					
+					// onBeforeHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeHide, function(e){
+						console.log('onBeforeHide');
+					});
+					
+					// onHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onHide, function(e){
+						console.log('onHide');
+					});
+					
+					// onDisplayImage
+					instance.addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function(e){
+						console.log('onDisplayImage{');
+						console.log('onDisplayImage - e.action = ' + e.action);
+						console.log('onDisplayImage - e.index = ' + e.index);
+						console.log(instance.getCurrentImage());
+						console.log('onDisplayImage}');
+					});
+					
+					// onResetPosition
+					instance.addEventHandler(PhotoSwipe.EventTypes.onResetPosition, function(e){
+						console.log('onResetPosition');
+					});
+					
+					// onSlideshowStart
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStart, function(e){
+						console.log('onSlideshowStart');
+					});
+					
+					// onSlideshowStop
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStop, function(e){
+						console.log('onSlideshowStop');
+					});
+					
+					// onTouch
+					instance.addEventHandler(PhotoSwipe.EventTypes.onTouch, function(e){
+						console.log('onTouch{');
+						console.log('onTouch - e.action = ' + e.action);
+						console.log('onTouch - e.point = ');
+						console.log(e.point);
+						console.log('onTouch}');
+					});
+					
+					// onBeforeCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarShow, function(e){
+						console.log('onBeforeCaptionAndToolbarShow');
+					});
+					
+					// onCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarShow, function(e){
+						console.log('onCaptionAndToolbarShow');
+					});
+					
+					// onBeforeCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarHide, function(e){
+						console.log('onBeforeCaptionAndToolbarHide');
+					});
+					
+					// onCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarHide, function(e){
+						console.log('onCaptionAndToolbarHide');
+					});
+					
+					// onToolbarTap
+					instance.addEventHandler(PhotoSwipe.EventTypes.onToolbarTap, function(e){
+						console.log('onToolbarTap');
+						console.log(e);
+					});
+					
+					// onBeforeZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateShow, function(e){
+						console.log('onBeforeZoomPanRotateShow');
+					});
+					
+					// onZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateShow, function(e){
+						console.log('onZoomPanRotateShow');
+					});
+					
+					// onBeforeZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateHide, function(e){
+						console.log('onBeforeZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateHide, function(e){
+						console.log('onZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateTransform
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateTransform, function(e){
+						console.log('onZoomPanRotateTransform');
+						console.log(e);
+					});
+					
+			}, false);
+			
+			
+		}(window, window.Code.PhotoSwipe));
+		
+	</script>
+
+<script>
+  
+  	function pagSinte(){
+		var ref = window.open('http://www.sintesis.mx', '_blank', 'location=yes');
+		}
+	function pagDesarrollo(){
+		var ref = window.open('http://www.desarrollosintesis.com', '_blank', 'location=yes');
+		}
+	function PagTwitter(){
+		var ref = window.open('https://twitter.com/Sintesisweb', '_blank', 'location=yes');
+		}
+	function PagFace(){
+		var ref = window.open('https://www.facebook.com/SintesisPuebla?fref=ts', '_blank', 'location=yes');
+		}
+		
+	function CargarNoticiasHome()
+	{
+		setTimeout(CargarNoticiasHome,60000);
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasHome.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('#ContenedorSlides').html(message);
+				
+				}
+			});
+
+	} 
+	
+	
+	
+	/*function CargarNoticiasHome()
+	{
+		setTimeout(CargarNoticiasHome,60000);
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasHome.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('#ContenedorSlides').html(message);
+				
+				}
+			});
+
+	} 
+	
+	function CargarNoticiasPlaza(plaza)
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas.php",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{
+				$("#plaza").html(message);
+				
+				}
+			});
+
+	} 
+
+
+	function LeerNota(id)
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/Nota.php",
+				data: "id="+id,
+				cache: false,
+				success: function(message)
+				{
+					
+				message=message.split("&");
+				$("#NotaSeccion").addClass(message[0]);
+				$('#NotaSeccion').html(message[1]);
+				$('#ContImagen').html(message[2]);
+				$('#ContTitulo').html(message[3]);
+				$('#ContSumario').html(message[4]);
+				$('#ContAutor').html(message[5]);
+				$('#ContFecha').html(message[6]);
+				$('#ContNota').html(message[7]);
+				$('#ExtrasPlaza').html(message[8]);
+				
+				}
+			});
+	}
+//CargarNoticiasHome();*/
+
+/*$(window).load(function() {
+      $('#cargando').hide();
+});*/
+
+</script>
+
+
+
+
+</head>
+<body onLoad="CargarNoticiasHome();">
+<!--<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
+
+<!-- Home -->
+<div id="home" class="content" >
+<div class="HeaderAlternativo">
+  <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="$('#panelSecciones').css('left','0');"> <img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a> </div>
+  <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  <div style=" display:inline-block; padding-top:0px; width:10%; text-align:right;"> <a href="#Info"> <img src="imagenes/iconos/azules/informacion@2x.png" width="50" > </a> </div>
+</div>
+<div id="ContenedorSlides"></div>
+
+<!-- Home --> 
+
+<!--Nota-->
+<div id="nota" class="TransicionTop">
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> 
+    <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a>
+    </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  <div class="back_nacion NotaSeccion">
+  	PUEBLA
+  </div>
+  <div>
+  	<div class="NotaContenedor">
+    		<!--Slide Principal-->
+   <div id="Gallery"  class="SlidePrincipal ImagenesNota" >
+   		
+        <div style="display:inline-block; overflow:hidden">
+          <div class="ImagenesNotaImagen">
+          	<img src="imagenes/imagenes-articulos/1.jpg">
+          	<div class="ZoomImagenNota">
+                <a href="imagenes/imagenes-articulos/1.jpg">
+                <img src="imagenes/iconos/azules/ampliar@2x.png">
+                </a>
+            </div>
+            <div class="MasImagenNota">
+              	<img src="imagenes/iconos/azules/otras@2x.png">
+          	</div>
+         </div>
+        </div>
+        <div style="display:inline-block; overflow:hidden">
+          <div class="ImagenesNotaImagen">
+              <img src="imagenes/imagenes-articulos/2.jpg">
+              <div class="ZoomImagenNota">
+                  <a href="imagenes/imagenes-articulos/2.jpg">
+                    <img src="imagenes/iconos/azules/ampliar@2x.png">
+                  </a>
+              </div>
+          
+          </div>
+        </div>
+      
+      
+    </div>
+  <!--Slide Principal--> 
+    
+    	<!--Imagenes Nota
+   <div  class="SlidePrincipal ImagenesNota" >
+        <div>
+        <ul id="Gallery" class="galleriaNota">
+        <li class="ImagenesNotaImagen"> <img src="imagenes/imagenes-articulos/2.jpg"> </li>
+   		<li class="ImagenesNotaImagen"><img src="imagenes/imagenes-articulos/2.jpg"> </li>
+        
+   
+  </ul>
+        
+       
+      
+    </div>
+  <!--Imagenes Nota--> 
+  
+  
+        <div class="NotaTitulo"> Kristen Stewart la actriz menos atractiva de Hollywood </div>
+        <div class="NotaSumario">Kristen Stweart. La estrella de Twilight es la primera de nueve de la lista de un portal británico para encontrar a la actriz de Hollywood menos sexy. </div>
+        
+         <div class="NotaAutor">AP/Roswell</div>
+         <div class="NotaFechaCreacion">32-93-2013 14:33:00</div>
+        
+        <div class="NotaCompleta">  La Secretaría de Salud (SSA) informó que permanecen hospitalizadas ocho personas que resultaron heridas en la explosión ocurrida el 31 de enero en la Torre B2 del Centro Administrativo Pemex, en la ciudad de México.
+         En su reporte diario, la dependencia federal indicó que el estado de salud de todos los pacientes internados en diferentes nosocomios del Distrito Federal es delicado.
+         La SSA detalló que uno de los pacientes recibe atención médica en el Centro de Neurorehabilitación Ángeles; cuatro en el Hospital Central Sur Picacho, de Petróleos Mexicanos (Pemex), y tres en el Hospital de Pemex Central Norte, uno de los cuales fue reportado grave la víspera y hoy se califica como delicado. 
+        </div>
+        
+        <div class="ExtrasPlaza">
+            <div class="NotaExtraContenedor">
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraTitulo borde_metropoli">
+                        Kristen Stewart la actriz menos atractiva de Hollywood
+                    </div>
+                    </a>
+                    
+                    <div class="NotaExtraImagen">
+                        <img src="imagenes/imagenes-articulos/2.jpg" >
+                    </div>
+                    
+                    <div class="NotaExtraSumario">
+                        Kristen Stweart. La estrella de Twilight es la primera de nueve de la lista de un portal británico para encontrar a la actriz de Hollywood menos sexy.
+                    </div>
+                    
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraLeerMas borde_metropoli ">
+                        Leer Más
+                    </div>
+                    </a>
+             </div>
+             
+             
+             <div class="NotaExtraContenedor">
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraTitulo borde_metropoli">
+                        Kristen Stewart la actriz menos atractiva de Hollywood
+                    </div>
+                    </a>
+                    
+                    <div class="NotaExtraImagen">
+                        <img src="imagenes/imagenes-articulos/2.jpg" >
+                    </div>
+                    
+                    <div class="NotaExtraSumario">
+                        Kristen Stweart. La estrella de Twilight es la primera de nueve de la lista de un portal británico para encontrar a la actriz de Hollywood menos sexy.
+                    </div>
+                    
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraLeerMas borde_metropoli ">
+                        Leer Más
+                    </div>
+                    </a>
+             </div>
+             
+             <div class="NotaExtraContenedor">
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraTitulo borde_metropoli">
+                        Kristen Stewart la actriz menos atractiva de Hollywood
+                    </div>
+                    </a>
+                    
+                    <div class="NotaExtraImagen">
+                        <img src="imagenes/imagenes-articulos/2.jpg" >
+                    </div>
+                    
+                    <div class="NotaExtraSumario">
+                        Kristen Stweart. La estrella de Twilight es la primera de nueve de la lista de un portal británico para encontrar a la actriz de Hollywood menos sexy.
+                    </div>
+                    
+                    <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+                    <div class="NotaExtraLeerMas borde_metropoli ">
+                        Leer Más
+                    </div>
+                    </a>
+             </div>
+         </div>
+            
+      </div>
+  </div>
+</div>
+<!--Nota--> 
+
+<!--Secciones-->
+<div id="secciones" class="TransicionFadeOut">
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="$('#panelSecciones').css('left','0');"> <img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a>
+    
+     </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  <div> 
+  
+  <div class="back_nacion SeccionSeccion">
+  	PUEBLA
+  </div>
+    <!--Slide Principal Plaza-->
+    <div class="ContenedorPrincipalSeccion">
+      <div style="float:left;margin-right:-30000px;">
+        
+        <div class="SubContenedorPrincipalSeccion"> 
+            <a href="#nota">
+              <div class="ContenidoPrincipalSeccion">
+                <div class="ImagenPrincipalSeccion"> <img src="imagenes/imagenes-articulos/10.jpg" > </div>
+                <div class="TextoPrincipalSeccion">
+                  <div class="TituloPrincipalSeccion"> Signan convenio para obras en pueblos indígenas </div>
+                  <div class="SeccionPrincipalSeccion"> METRÓPOLI </div>
+                  <div class="AutorPrincipalSeccion"> Clauda Aguilar/Síntesis </div>
+                  <div class="FechaPrincipalSeccion"> 2013-03-28 14:27:29 </div>
+                </div>
+              </div>
+              </a> 
+              
+              <a href="#nota">
+              <div class="ContenidoPrincipalSeccion">
+                <div class="ImagenPrincipalSeccion"> <img src="imagenes/imagenes-articulos/2.jpg" > </div>
+                <div class="TextoPrincipalSeccion">
+                  <div class="TituloPrincipalSeccion"> Signan convenio para obras en pueblos indígenas </div>
+                  <div class="SeccionPrincipalSeccion"> METRÓPOLI </div>
+                  <div class="AutorPrincipalSeccion"> Clauda Aguilar/Síntesis </div>
+                  <div class="FechaPrincipalSeccion"> 2013-03-28 14:27:29 </div>
+                </div>
+              </div>
+              </a> 
+              
+              <div class="ContenidoPrincipalSeccion">
+                <div class="PublicidadPrincipalSeccion"> <img src="imagenes/publicidad/5.jpg" > </div>
+              </div>
+              
+              <a href="#nota">
+              <div class="ContenidoPrincipalSeccion">
+                <div class="ImagenPrincipalSeccion"> <img src="imagenes/imagenes-articulos/3.jpg" > </div>
+                <div class="TextoPrincipalSeccion">
+                  <div class="TituloPrincipalSeccion"> Signan convenio para obras en pueblos indígenas </div>
+                  <div class="SeccionPrincipalSeccion"> METRÓPOLI </div>
+                  <div class="AutorPrincipalSeccion"> Clauda Aguilar/Síntesis </div>
+                  <div class="FechaPrincipalSeccion"> 2013-03-28 14:27:29 </div>
+                </div>
+              </div>
+              </a> 
+              
+              <a href="#nota">
+              <div class="ContenidoPrincipalSeccion">
+                <div class="ImagenPrincipalSeccion"> <img src="imagenes/imagenes-articulos/4.jpg" > </div>
+                <div class="TextoPrincipalSeccion">
+                  <div class="TituloPrincipalSeccion"> Signan convenio para obras en pueblos indígenas </div>
+                  <div class="SeccionPrincipalSeccion"> METRÓPOLI </div>
+                  <div class="AutorPrincipalSeccion"> Clauda Aguilar/Síntesis </div>
+                  <div class="FechaPrincipalSeccion"> 2013-03-28 14:27:29 </div>
+                </div>
+              </div>
+              </a> 
+              
+              <div class="ContenidoPrincipalSeccion">
+                <div class="PublicidadPrincipalSeccion"> <img src="imagenes/publicidad/8.jpg" > </div>
+              </div>
+              
+              <a href="#nota">
+              <div class="ContenidoPrincipalSeccion">
+                <div class="ImagenPrincipalSeccion"> <img src="imagenes/imagenes-articulos/4.jpg" > </div>
+                <div class="TextoPrincipalSeccion">
+                  <div class="TituloPrincipalSeccion"> Signan convenio para obras en pueblos indígenas </div>
+                  <div class="SeccionPrincipalSeccion"> METRÓPOLI </div>
+                  <div class="AutorPrincipalSeccion"> Clauda Aguilar/Síntesis </div>
+                  <div class="FechaPrincipalSeccion"> 2013-03-28 14:27:29 </div>
+                </div>
+              </div>
+              </a> 
+              
+          </div>
+          
+          
+      </div>
+    </div>
+    <!--Slide Principal Plaza--> 
+    
+    <!--Slide Vertical Seccion-->
+    <div class="DivVertical">
+      <div  class="ContenedorSlideVertical" >
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/6.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/3.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+          
+          <div > 
+            <div class="PublicidadSlideVertical">
+                <img src="imagenes/publicidad/2.jpg">
+            </div>
+        </div>
+        
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/2.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+            
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/7.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+      </div>
+    </div>
+    <!--Slide Vertical Seccion--> 
+    
+    <!--Contenedor Minuto a Minuto Video y Suplementos-->
+    <div class="ContenedorDivMedio">
+      <div class="ContenedorMinutovideo">
+        <div class="Minuto_A_Minuto">
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+          </div>
+        </div>
+        <div class="Video"> <img src="imagenes/video.png"> </div>
+      </div>
+      <div class="Suplementos"> 
+        <div class="DivSuplementos">
+            <div style="float:left;margin-right:-30000px;">
+            	<div class="ContSuplemento">
+            		<img src="imagenes/publicidad/10.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <!--Contenedor Minuti a Minuto Video y Suplementos--> 
+    
+  </div>
+</div>
+<!--Secciones--> 
+
+<!--Galeria de Fotos-->
+<div id="galeria" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  
+  <div style="height:93.5%; overflow:hidden;">
+   	<div id="MainContent">
+      <ul id="Gallery" class="gallery">
+    <li><a href="images/full/001.jpg"><img src="images/thumb/001.jpg" alt="" /></a></li>
+    <li><a href="images/full/002.jpg"><img src="images/thumb/002.jpg" alt="" /></a></li>
+    <li><a href="images/full/003.jpg"><img src="images/thumb/003.jpg" alt="" /></a></li>
+    <li><a href="images/full/004.jpg"><img src="images/thumb/004.jpg" alt="" /></a></li>
+    <li><a href="images/full/005.jpg"><img src="images/thumb/005.jpg" alt="" /></a></li>
+    <li><a href="images/full/006.jpg"><img src="images/thumb/006.jpg" alt="" /></a></li>
+    <li><a href="images/full/007.jpg"><img src="images/thumb/007.jpg" alt="" /></a></li>
+    <li><a href="images/full/008.jpg"><img src="images/thumb/008.jpg" alt="" /></a></li>
+    <li><a href="images/full/009.jpg"><img src="images/thumb/009.jpg" alt="" /></a></li>
+    <li><a href="images/full/010.jpg"><img src="images/thumb/010.jpg" alt="" /></a></li>
+    <li><a href="images/full/011.jpg"><img src="images/thumb/011.jpg" alt="" /></a></li>
+    <li><a href="images/full/012.jpg"><img src="images/thumb/012.jpg" alt="" /></a></li>
+    <li><a href="images/full/013.jpg"><img src="images/thumb/013.jpg" alt="" /></a></li>
+    <li><a href="images/full/014.jpg"><img src="images/thumb/014.jpg" alt="" /></a></li>
+    <li><a href="images/full/015.jpg"><img src="images/thumb/015.jpg" alt="" /></a></li>
+    <li><a href="images/full/016.jpg"><img src="images/thumb/016.jpg" alt="" /></a></li>
+    <li><a href="images/full/017.jpg"><img src="images/thumb/017.jpg" alt="" /></a></li>
+    <li><a href="images/full/018.jpg"><img src="images/thumb/018.jpg" alt="" /></a></li>
+  </ul>
+    </div>
+
+  </div>
+</div>
+<!--Galeria de Fotos-->
+
+<!--Video-->
+<div id="video" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+    
+  </div>
+  <div style="height:93.5%; overflow:hidden;">
+    <div class="contvideogaleria">
+      <div id="videogaleria">
+      	<div class="VideoTituloPrincipal">
+        	<strong>Confía EPN en superar prospectivas de crecimiento</strong>
+        </div>
+        <object width="100%" height="49%">
+          <param name="movie" value="http://youtube.com/v/M885NmIBLlc?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=0&modestbranding=1"/>
+          <param value="true" name="allowFullScreen"/>
+          <param value="always" name="allowscriptaccess"/>
+          <param value="transparent" name="wmode"/>
+          <embed width="100%" height="49%" wmode="transparent"  allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="http://youtube.com/v/M885NmIBLlc?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=0&showinfo=0&modestbranding=1"/>
+        </object>
+      </div>
+      <div class="contvideogaleriaimg"> 
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/IomwuczBqJY" onclick="return cambiarvideo(this.href,this.title)" title="Toma protesta de diputados"> <img src="http://img.youtube.com/vi/IomwuczBqJY/0.jpg" />
+                  <div class="titulo_video"> <strong>Toma protesta de diputados</strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/bXL7a1ReAjs" onclick="return cambiarvideo(this.href,this.title)" title="Emiliano Zapata a 94 años de su asesinato"> <img src="http://img.youtube.com/vi/bXL7a1ReAjs/0.jpg" />
+                  <div class="titulo_video"> <strong>Emiliano Zapata a 94 años de su asesinato </strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/UF_p0_diF_8" onclick="return cambiarvideo(this.href,this.title)" title="Síntesis Puebla"> <img src="http://img.youtube.com/vi/UF_p0_diF_8/0.jpg" />
+                  <div class="titulo_video"> <strong>Síntesis Puebla</strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/FglK5-SsgU4" onclick="return cambiarvideo(this.href,this.title)" title="Premios Predial 2013"> <img src="http://img.youtube.com/vi/FglK5-SsgU4/0.jpg" />
+                  <div class="titulo_video"> <strong>Premios Predial 2013 </strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/TVfLcHOkv20" onclick="return cambiarvideo(this.href,this.title)" title="Balance favorable a la vista presidencial"> <img src="http://img.youtube.com/vi/TVfLcHOkv20/0.jpg" />
+                  <div class="titulo_video"> <strong>Balance favorable a la vista presidencial </strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/RRBF2-xqB_8" onclick="return cambiarvideo(this.href,this.title)" title="11° Encuentro de Desarrollo Profesional 2013"> <img src="http://img.youtube.com/vi/RRBF2-xqB_8/0.jpg" />
+                  <div class="titulo_video"> <strong>11° Encuentro de Desarrollo Profesional 2013</strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/M885NmIBLlc" onclick="return cambiarvideo(this.href,this.title)" title="11° Encuentro de Desarrollo Profesional 2013"> <img src="http://img.youtube.com/vi/M885NmIBLlc/0.jpg" />
+                  <div class="titulo_video"> <strong>11° Encuentro de Desarrollo Profesional 2013</strong> </div>
+                </a> 
+            </div> 
+            
+            <div class="VideoImagen">
+                <a href="http://youtube.com/v/M885NmIBLlc" onclick="return cambiarvideo(this.href,this.title)" title="11° Encuentro de Desarrollo Profesional 2013"> <img src="http://img.youtube.com/vi/M885NmIBLlc/0.jpg" />
+                  <div class="titulo_video"> <strong>11° Encuentro de Desarrollo Profesional 2013</strong> </div>
+                </a> 
+            </div> 
+       </div>
+    </div>
+    <script type="text/javascript">
+function cambiarvideo(url,titulo){
+  document.getElementById('videogaleria').innerHTML = '<div class="VideoTituloPrincipal"><strong>'+titulo+'</strong></div><object width="100%" height="49%"><param name="movie" value="'+url+'?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=1&modestbranding=1"/><param value="true" name="allowFullScreen"/><param value="always" name="allowscriptaccess"/><param value="transparent" name="wmode"/><embed width="100%" height="49%" wmode="transparent"  allowfullscreen="true" allowscriptaccess="always" type="application/x-shockwave-flash" src="'+url+'?fs=1&amp;hl=es_ES&amp;rel=0&amp;autoplay=1&showinfo=0&modestbranding=1"/></object>';
+return false;
+}
+</script> 
+  </div>
+</div>
+<!--Video-->
+
+
+<!--Impreso-->
+<script>
+
+function ImprimirImpresoPortada()
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/ImprimirImpresoPortadas.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{
+					message=message.split("&");
+					
+	$("#ImgPortadaPuebla").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Puebla/Thumbs/"+message[1]+".jpg)");
+	
+	$("#ImgPortadaTlaxcala").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Tlaxcala/Thumbs/"+message[2]+".jpg)");
+	
+	$("#ImgPortadaChiapas").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Chiapas/Thumbs/"+message[5]+".jpg)");
+	
+	$("#ImgPortadaHidalgo").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Hidalgo/Thumbs/"+message[3]+".jpg)");
+	
+	$("#ImgPortadaOaxaca").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Oaxaca/Thumbs/"+message[4]+".jpg)");
+	
+	$("#ImgPortadaYucatan").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Yucatan/Thumbs/"+message[6]+".jpg)");
+	
+	$("#ImgPortadaNacional").css("background-image", "url(http://166.78.193.53/APPSintesis/ImpresoPortadas/Nacional/Thumbs/"+message[7]+".jpg)");
+				
+				
+				
+				
+				}
+				
+			});
+
+	}
+	
+</script>
+
+ <link rel="stylesheet" href="js/SlideImpreso/style.css">
+
+<script src="js/SlideImpreso/idangerous.swiper.js"></script>
+<script src="js/SlideImpreso/idangerous.swiper.3dflow.js"></script>
+
+<div id="impreso"  class="TransicionFadeOut" >
+  <div class="HeaderAlternativo">
+    
+    <div style=" display:inline-block; padding-top:0px; width:30px; vertical-align:top;padding-left:5px;"> <a href="#home"> <img src="imagenes/home@2x.png" width="50" > </a>
+     </div>
+     
+     <div style=" display:inline-block; padding-top:0px; width:50px;padding-left:10px; "> <a href="javascript:;" onClick="$('#panelSeccionesImpreso').css('left','0');"> <img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a>
+     </div>
+     
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+    
+  </div>
+
+	<div id="ContenedorImpresoPortadas">
+        <div class="main">
+          <div class="swiper-container appstore td1">
+          
+            <div class="swiper-wrapper">
+            
+            
+              <div  class="swiper-slide" id="ImgPortadaPuebla">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/puebla.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Puebla');">
+              </a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              
+              <div class="swiper-slide" id="ImgPortadaNacional">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/nacional.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Nacional');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              
+              
+              <div class="swiper-slide" id="ImgPortadaTlaxcala">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/tlaxcala.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Tlaxcala');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              <div class="swiper-slide ImpresoSuplemento" id="ImgPortadaOaxaca">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/oaxaca.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Oaxaca');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              <div class="swiper-slide" id="ImgPortadaHidalgo">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/hidalgo.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Hidalgo');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              
+              <div class="swiper-slide ImpresoSuplemento" id="ImgPortadaChiapas">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/chiapas.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Chiapas');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+              <div class="swiper-slide ImpresoSuplemento" id="ImgPortadaYucatan">
+              <div class="EtiquetaImpreso">
+              <img src="imagenes/EtiquetasPlazas/yucatan.png"></div>
+              <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('Yucatan');"></a>
+              <div class="reflection"></div>
+              <div class="swiper-slide-shadow-left" ></div>
+              <div class="swiper-slide-shadow-right"></div>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+	</div>
+</div>
+<!--Impreso--> 
+
+
+<!--Panel de Secciones de Impreso-->
+
+<div id="panelSeccionesImpreso"  class="panelSeccion" style=" min-width:20%;"> 
+  <div class="paneSeccionEdicion"> Edicion Impresa </div>
+  
+  <a href="#impreso-portadas" onClick="ImprimirImpresoTodas('nacional');$('#panelSeccionesImpreso').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Nacional </div>
+  </a>
+   <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Puebla');">
+  <div class="panelSeccionTitulo"> Puebla </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Hidalgo');">
+  <div class="panelSeccionTitulo"> Hidalgo </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Tlaxcala');">
+  <div class="panelSeccionTitulo"> Tlaxcala </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Oaxaca');">
+  <div class="panelSeccionTitulo"> Oaxaca </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Chiapas');">
+  <div class="panelSeccionTitulo"> Chiapas </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('Yucatan');">
+  <div class="panelSeccionTitulo"> Yucatán </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <div class="paneSeccionEdicion"> Suplementos</div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('arte_cultura');">
+  <div class="panelSeccionTitulo" style=" width:80%; text-align:center;"> Catedral, Arte y Cultura </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('velocidad');">
+  <div class="panelSeccionTitulo"> Velocidad </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('recorridos');">
+  <div class="panelSeccionTitulo"> Recorridos </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('NYT');">
+  <div class="panelSeccionTitulo" style=" width:80%; text-align:center;"> New York Times </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#impreso-portadas" onClick="$('#panelSeccionesImpreso').css('left','-250%');ImprimirImpresoTodas('LaTarea');">
+  <div class="panelSeccionTitulo"> La Tarea </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a class="closeSeccion" href="javascript:;" onClick="$('#panelSeccionesImpreso').css('left','-250%');"></a> </div>
+
+<!--Panel de Secciones de Impreso-->
+
+
+
+<!--Impreso Portadas-->
+<script>
+	function CambiarPortada(plaza,archivo){
+		$('#ImagenPortadaImp').html('<img src="http://166.78.193.53/APPSintesis/ImpresoPortadas/'+plaza+'/'+archivo+'.jpg" width="100%">');
+		}
+	
+</script>
+<script>
+function ImprimirImpresoTodas(plaza)
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/ImprimirImpresoTodas.php",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{
+					$('#ContenedorImagenImpreso').html(message);
+				}
+				
+			});
+
+	}
+	
+</script>
+
+
+<div id="impreso-portadas"  class="TransicionFadeOut" >
+      <div class="HeaderAlternativo">
+      
+        <div style=" display:inline-block; padding-top:0px; width:50px; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+        
+     <div style=" display:inline-block; padding-top:0px; width:50px;padding-left:10px; "> <a href="javascript:;" onClick="$('#panelSeccionesImpreso').css('left','0');"> <img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a>
+     </div>
+     
+     
+        <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+        
+      </div>
+
+ 
+  	<div id="ContenedorImagenImpreso" class="ContenedorImagenImpreso" >
+    	
+    </div>
+    
+</div>
+<!--Impreso Portadas--> 
+
+<!--Dialogo Plazas--> 
+<a href="#home" class="overlay" id="DialogoPlazas"></a>
+<div class="popup"> <a href="#plaza" onClick="CargarNoticiasPlaza('puebla')">
+  <div class="DialogoPlaza"> Puebla </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('yucatan')">
+  <div class="DialogoPlaza"> Yucatán </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('tlaxcala')">
+  <div class="DialogoPlaza"> Tlaxcala </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('hidalgo')">
+  <div class="DialogoPlaza"> Hidalgo </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('oaxaca')">
+  <div class="DialogoPlaza"> Oaxaca </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('chiapas')">
+  <div class="DialogoPlaza"> Chiapas </div>
+  </a> <a class="close" href="#home"></a> </div>
+<!--Dialogo Plazas--> 
+
+<!--Dialogo de Info--> 
+
+<a href="#home" class="overlayInfo" id="Info"></a>
+<div class="popupInfo" >
+  <div class="HeadDialogoInfo"> Mensiones Legales </div>
+  <div class="ContenidoDialogoInfo"> La aplicación Síntesis esta creada y editada por Asociación periodística Síntesis. 23 Sur y 25 Poniente #2504 Col. Volcanes. C.P: 72410.
+    <p>&nbsp;</p>
+    Representante Legal. Director de la Publicación.<br>
+    <strong>Oscar Tendero.</strong>
+    <p>&nbsp;</p>
+    Director de la Redacción.<br>
+    <strong>Erick Becerra.</strong>
+    <p>&nbsp;</p>
+    Para cualquier problema sobre la aplicación contactanos <a class="" href="mailto:admin-web@sintesisdigital.com.mx" style="width:150px; margin:auto;">
+    <div class="BotonDialogoInfo"> Contactanos </div>
+    </a>
+    <p>&nbsp;</p>
+    Ésta publicación ha sido realizada por Desarrollo Síntesis.<br>
+    <a href="javascript:;" onClick="pagDesarrollo();" data-theme="z" >
+    <div style="color:#FFF;"> www.desarrollosintesis.com </div>
+    </a> <a class="close" href="#home"></a> </div>
+</div>
+<!--Dialogo de Info--> 
+
+<!--Panel de Secciones-->
+
+<div id="panelSecciones"  class="panelSeccion"> 
+  <a href="#home" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Home </div>
+  
+  <div class="paneSeccionEdicion"> Secciones </div>
+  </a>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/nacion@2x.png);"> Nación </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/orbe@2x.png);"> Orbe </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/percapita@2x.png);"> Per Cápita </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/cronos@2x.png);"> Cronos </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/circus@2x.png);"> Circus </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/vox@2x.png);"> Vox </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/tecno@2x.png);"> Tecno </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <div class="paneSeccionEdicion"> Estados </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Puebla </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Hidalgo </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Tlaxcala </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Oaxaca </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Chiapas </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%');">
+  <div class="panelSeccionTitulo"> Yucatán </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a class="closeSeccion" href="javascript:;" onClick="$('#panelSecciones').css('left','-250%');"></a> </div>
+<!--Panel de Secciones--> 
+
+
+<!--Footer-->
+<div class="HeaderAlternativo" style="position:fixed; bottom:0; vertical-align:top">
+  
+  <div style=" display:inline-block; text-align:center; position:absolute; z-index:-1; width:100%;"> <a href="#impreso" onClick="ImprimirImpresoPortada();"> <img src="imagenes/iconos/azules/impreso@2x.png" width="50" > </a> </div>
+  
+  <div style="display:inline-block; padding-left:20px; "> <a href="#ubicacion"> <img src="imagenes/iconos/azules/ubicacion@2x.png" width="50" > </a> </div>
+  
+   <div style="display:inline-block; padding-left:20px; "> <a href="#video"> <img src="imagenes/iconos/azules/video@2x.png" width="50" > </a> </div>
+  
+  <div style=" display:inline-block;padding-left:20px;"> <a href="#galeria"> <img src="imagenes/iconos/azules/galeria@2x.png" width="50" > </a> </div>
+  
+  <div style=" display:inline-block;padding-left:20px;"> <a href="http://166.78.193.53/" target="_blank"> <img src="imagenes/iconos/azules/web@2x.png" width="50" > </a> </div>
+  
+   <div style=" float:right; display:inline-block; padding-right:20px;"> <a href="#guia"> <img src="imagenes/iconos/azules/guia@2x.png" width="50" > </a> </div>
+   
+  <div style="float:right;display:inline-block;padding-right:20px; "> <a href="mailto:admin-web@sintesisdigital.com.mx"> <img src="imagenes/iconos/azules/correo@2x.png" width="50" > </a> </div>
+  
+  <div style=" float:right; display:inline-block; padding-right:20px;"> <a href="javascript:;" onClick="PagTwitter();"> <img src="imagenes/iconos/azules/twitter@2x.png" width="50" > </a> </div>
+  
+  <div style=" float:right; display:inline-block; padding-right:20px;"> <a href="javascript:;" onClick="PagFace();"> <img src="imagenes/iconos/azules/facebook@2x.png" width="50" > </a> </div>
+  
+  
+</div>
+<!--Footer-->
+
+<script>
+      jQuery(document).ready(function($) {
+
+  $(".SlidePrincipal").royalSlider({
+    autoHeight: false,
+    arrowsNav: false,
+    fadeinLoadedSlide: false,
+    controlNavigationSpacing: 0,
+    controlNavigation: "tabs",
+    imageScaleMode: "none",
+    imageAlignCenter:false,
+    loop: false,
+    loopRewind: true,
+    numImagesToPreload: 6,
+    keyboardNavEnabled: false,
+    usePreloader: true
+  });
+ 
+  
+  
+  });
+  
+  /* 3D Flow demos */
+$(function(){
+	
+	
+	td1 = $('.td1').swiper({
+		slidesPerSlide:3,
+		loop:true,
+		//Enable 3D Flow
+		tdFlow: {}
+	})
+	
+})
+
+    </script> 
+    
+   
+</div>
+</body>
+</html>

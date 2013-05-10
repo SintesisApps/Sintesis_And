@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget xmlns     = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id        = "com.app.sintesis"
+        version   = "0.0.1">
+    <name>Síntesis</name>
+
+    <description>
+        Síntesis
+    </description>
+
+    <author href="http://sintesis.mx" email="admin-web@sintesisdigital.com.mx">
+        Asociación Periodística Síntesis
+    </author>
+
+    <feature name="http://api.phonegap.com/1.0/device" />
+	<feature name="http://api.phonegap.com/1.0/battery"/>
+	<feature name="http://api.phonegap.com/1.0/camera"/>
+	<feature name="http://api.phonegap.com/1.0/contacts"/>
+	<feature name="http://api.phonegap.com/1.0/file"/>
+	<feature name="http://api.phonegap.com/1.0/geolocation"/>
+	<feature name="http://api.phonegap.com/1.0/media"/>
+	<feature name="http://api.phonegap.com/1.0/network"/>
+	<feature name="http://api.phonegap.com/1.0/notification"/>
+	
+
+    <preference name="phonegap-version" value="2.3.0" />
+    <preference name="orientation"      value="default" />
+    <preference name="target-device"    value="universal" />
+    <preference name="fullscreen"       value="true" />
+	<preference name="webviewbounce" value="false" />
+	<preference name="stay-in-webview" value="true" />
+	 <preference name="ios-statusbarstyle" value="black-translucen" />
+
+    <icon src="imagenes/iconos/iconos/1024.png" />
+    <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="ldpi" />
+    <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="mdpi" />
+    <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="hdpi" />
+    <icon src="imagenes/iconos/iconos/1024.png"  gap:platform="android"    gap:density="xhdpi" />
+    <icon src="imagenes/iconos/iconos/1024.png"     gap:platform="blackberry" />
+    <icon src="imagenes/iconos/iconos/1024.png"     gap:platform="blackberry" gap:state="hover"/>
+    <icon src="imagenes/iconos/iconos/57.png"            gap:platform="ios"        width="57" height="57" />
+    <icon src="imagenes/iconos/iconos/72.png"            gap:platform="ios"        width="72" height="72" />
+    <icon src="imagenes/iconos/iconos/114.png"         gap:platform="ios"        width="114" height="114" />
+    <icon src="imagenes/iconos/iconos/144.png"         gap:platform="ios"        width="144" height="144" />
+    <icon src="imagenes/iconos/iconos/1024.png"          gap:platform="webos" />
+    <icon src="imagenes/iconos/iconos/1024.png"  gap:platform="winphone" />
+    <icon src="imagenes/iconos/iconos/1024.png" gap:platform="winphone"   gap:role="background" />
+
+    <gap:splash src="imagenes/splashscreen/ldpi.png"  gap:platform="android" gap:density="ldpi" />
+    <gap:splash src="imagenes/splashscreen/mdpi.png"  gap:platform="android" gap:density="mdpi" />
+    <gap:splash src="imagenes/splashscreen/hdpi.png"  gap:platform="android" gap:density="hdpi" />
+    <gap:splash src="imagenes/splashscreen/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="imagenes/splashscreen/ldpi.png"         gap:platform="blackberry" />
+    <gap:splash src="imagenes/splash_vertical.png"    gap:platform="ios"     width="320" height="480" />
+    <gap:splash src="imagenes/splash_vertical.png" gap:platform="ios"     width="640" height="960" />
+    <gap:splash src="imagenes/splashscreen/mdpi_v.png"      gap:platform="ios"     width="768" height="1024" />
+    <gap:splash src="imagenes/splashscreen/mdpi.png"     gap:platform="ios"     width="1024" height="768" />
+    <gap:splash src="imagenes/splashscreen/ldpi.png" gap:platform="winphone" />
+	
+	<access origin="*" />
+</widget>
