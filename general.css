@@ -41,10 +41,12 @@ body{
 	
 #pie_pag
 {/*style="position:fixed; bottom:0; vertical-align:top"*/
-	position:absolute;
-	 bottom:0; 
+
+	 /*bottom:0; */
 	 vertical-align:top;
-	 clear:both;
+	 margin-top:-200px;
+	 	position:absolute;
+	 /*clear:both;*/
 	
 }
 .DialogoPlaza{
