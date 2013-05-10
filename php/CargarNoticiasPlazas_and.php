@@ -286,7 +286,7 @@ $seccion="nacion";
 				$ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
 				$script='<script>
 				$("div.Suplementos img").attr("src","");
-				$("div.Suplementos img").css({"height":"89.5%"});
+				$("div.Suplementos img").css({"height":"38.5%"});
 				$("div.ContSuplemento img").attr("src","'.$ruta_publi.'");</script>';
 				
 				//recarga
@@ -577,7 +577,7 @@ $array_pub=mysql_fetch_array($puclicidad);
 $ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
 $script='<script>
 $("div.Suplementos img").attr("src","");
-$("div.Suplementos img").css({"height":"89.5%"});
+$("div.Suplementos img").css({"height":"38.5%"});
 $("div.ContSuplemento img").attr("src","'.$ruta_publi.'");</script>';
 	
 	$arr1[$i]=array(
