@@ -41,6 +41,12 @@
 			minuto_minuto();
 			CargarNoticiasHomeGal();
 			
+        var options = { frequency: 100000 };
+        watchID = navigator.geolocation.watchPosition(onSuccess, onError, options);
+    
+			
+			
+			
 		}
 		else
 		{
@@ -50,29 +56,6 @@
 	});	
 });
 	
-	/*document.addEventListener("deviceready", onDeviceReady, false);
-
-    // PhoneGap is loaded and it is now safe to make calls PhoneGap methods
-    //
-    function onDeviceReady() {
-        var  conexion =checkConnection();
-		if(conexion=="WiFi connection")
-		{
-			alert("conectado");
-			slidePrincipal();
-			slideMiniatura();
-			slideVertical();
-			//galeriaImagenes();
-			//galeria_video('nacionales');	
-			minuto_minuto();
-			//CargarNoticiasHomeGal();
-					
-		}
-		else
-		{alert("noconectado");}
-    }*/
-/*
-
 
 */
     
@@ -115,6 +98,22 @@
         alert('Connection type: ' + states[networkState]);
 		var conex=states[networkState];
     }
+	/*Geolocalizaicon*/
+	  var watchID = null;
+    
+
+    function onSuccess(position) {
+        var element = document.getElementById('map_canvas');
+        element.innerHTML = 'Latitude: '  + position.coords.latitude      + '<br />' +
+                            'Longitude: ' + position.coords.longitude     + '<br />' +
+                            '<hr />'      + element.innerHTML;
+    }
+    function onError(error) {
+        alert('code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
+	/*Geo*/
+	
 	
 	 function initialize() 
 	  {
@@ -144,6 +143,9 @@
 				  });
 		  }, false);
       }
+	  
+	  
+	  
 			function CargarNoticiasHomeGal()
 			{
 				$.ajax({
@@ -483,8 +485,10 @@ function LeerNota(id)
   </script>
 
 </head>
-<body onload="initialize()">
-<!--"<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
+<body>
+<!--
+onload="initialize()"
+"<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
 
 <!-- Home -->
 <div id="home" class="content" >
