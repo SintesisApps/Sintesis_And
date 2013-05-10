@@ -33,7 +33,7 @@
 		
 		if(navigator.connection.type != Connection.NONE)
 		{
-			//alert("conectado");
+			alert("conectado");
 			slidePrincipal();
 			slideMiniatura();
 			slideVertical();
@@ -744,7 +744,8 @@ return false;
 <!-- guia nav--> 
 
 <!--IMPRESO -->
-<!--
+<!--Impreso-->
+
 <script>
 
 function ImprimirImpresoPortada()
@@ -883,12 +884,12 @@ function ImprimirImpresoPortada()
         </div>
 	</div>
 </div>
--->
+
 <!--Impreso--> 
 
 
 <!--Panel de Secciones de Impreso-->
-<!--
+
 <div id="panelSeccionesImpreso"  class="panelSeccion" style=" min-width:20%;"> 
   <div class="paneSeccionEdicion"> Edicion Impresa </div>
   
@@ -942,13 +943,13 @@ function ImprimirImpresoPortada()
   </a>
   <div class="panelSeccionSpacer"> </div>
   <a class="closeSeccion" href="javascript:;" onClick="$('#panelSeccionesImpreso').css('left','-250%');"></a> </div>
--->
+
 <!--Panel de Secciones de Impreso-->
 
 
 
 <!--Impreso Portadas-->
-<!--
+
 <script>
 	function CambiarPortada(plaza,archivo){
 		$('#ImagenPortadaImp').html('<img src="http://166.78.193.53/APPSintesis/ImpresoPortadas/'+plaza+'/'+archivo+'.jpg" width="100%">');
@@ -996,8 +997,12 @@ function ImprimirImpresoTodas(plaza)
     </div>
     
 </div>
--->
 <!--Impreso Portadas--> 
+
+
+
+<!-- FIN IMPRESO-->
+
 
 
 
@@ -1115,7 +1120,7 @@ function ImprimirImpresoTodas(plaza)
 </div>
 <!--Footer-->
 
-<script>
+<script>/*
       jQuery(document).ready(function($) {
 
   $(".SlidePrincipal").royalSlider({
@@ -1136,7 +1141,7 @@ function ImprimirImpresoTodas(plaza)
   
   
   });
-/*
+
 $(function(){
 
 
@@ -1147,8 +1152,8 @@ loop:true,
 tdFlow: {}
 })
 
-})*/
-
+})
+*/
     </script> 
 </div>
 </body>
