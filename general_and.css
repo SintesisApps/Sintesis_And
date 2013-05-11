@@ -400,11 +400,11 @@ body{
 	background-position: top;
 	background-size:contain;
 	background-repeat:no-repeat;
-	height:138px;
+	height:259px;
 	font-size:12px;
 	padding-top:45px;
 	padding-left:15px;
-	max-width:336px;
+	max-width:4430px;
 	/*width:363px;
 	height:185px;*/
 	
@@ -668,7 +668,9 @@ body{
 .NotaExtraImagen img{
 	margin:auto;
 	margin-top:15px;
-	width:90%;
+	/*width:90%;*/
+	width:155px;
+	height:auto;
 	}
 .NotaExtraSumario{
 	margin:auto;
