@@ -17,7 +17,7 @@ function solo_hora($date_hora)
 }
 
 $html="";
-$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 4";
+$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 7";
 $r_app=mysql_query($select_app,$conexion);
 
 while($f_app=mysql_fetch_assoc($r_app)):
