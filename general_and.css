@@ -1277,3 +1277,13 @@ body{
 	
 	
 	}
+
+.contNav
+{
+width:100%;
+ height:80%; 
+ background:url(imagenes/guia.png) no-repeat; 
+ background-size:770px; 
+ background-position:center center;
+  margin-top:10px;
+}
