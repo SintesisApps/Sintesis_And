@@ -19,12 +19,6 @@ body{
 	}
 
 
-#div
-{
-	position:absolute;
-	width:1280px;
-	height:697px;	
-}
 	
 .HeaderAlternativo{
 	background-image:url(imagenes/barra.png);
@@ -175,14 +169,14 @@ body{
 .SlidePrincipalImagen {
 	display:inline-block;
 	width:49%;
-	height:242px;
+	height:300px;
 	vertical-align:top;
 	overflow:hidden;
 }
 .PublicidadSlidePrincipal {
 	display:inline-block;
 	width:100%;
-	height:242px;
+	height:232px;
 	vertical-align:top;
 	overflow:hidden;
 }
@@ -192,7 +186,7 @@ body{
 .SlidePrincipalContenido {
 	display:inline-block;
 	width:49%;
-	height:240px;
+	height:250px;
 	vertical-align:top;
 	font-size: 30px;
 	color: #666;
@@ -291,6 +285,7 @@ body{
 .DivVertical{
 	width:35%;
 	display:inline-block;
+	height:320px;
 	}
 .ContenedorSlideVertical {
 	width: 100%;
@@ -301,7 +296,7 @@ body{
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
 	margin-bottom:50px;
-	height:300px;
+	height:290px;
 	
 	
 }
@@ -425,6 +420,7 @@ body{
 /*Video*/
 
 /*Suplementos*/
+
 .Suplementos {
 	display:inline-block;
 	width: 40%;
@@ -432,7 +428,8 @@ body{
 	padding:10px;	
 }
 .DivSuplementos {
-	 width:233px;
+	 width:333px;
+	 height:240px;
 	 overflow-x:auto;
 	 -webkit-overflow-scrolling: touch;
 }
@@ -444,6 +441,7 @@ body{
 	display:inline-block;
 	width: 100%;
 	vertical-align:top;
+	height:auto;
 }
 /*Suplementos*/
 
@@ -804,7 +802,7 @@ body{
 
 /*Slide Vertical*/
 .DivVertical{
-	height:auto;
+	height:320px;
 	}
 .ContenedorSlideVertical {
 	width: 100%;
@@ -815,7 +813,7 @@ body{
 	display:inline-block;
 	overflow: auto;
 	-webkit-overflow-scrolling: touch;
-	height:310px;
+	height:240px;
 	
 	
 }
@@ -880,11 +878,11 @@ body{
 
 	 /*Slide Vertical*/
 .DivVertical{
-	height:500px;
+	height:320px;
 	width:50%;
 	}
 .ContenedorSlideVertical {
-	height:547px;
+	height:240px;
 }
 .SlideVerticalImagen {
 	width: 49%;
@@ -1257,5 +1255,25 @@ body{
 	
 
 	<!--Reproductor de Video-->
+#contenedor_general
+{
+	width:1200px;
+	height:697px;
+	position:fixed;
+	margin:0px auto;
+}
+ .HeaderAlternativo_footer{
+	background-image:url(imagenes/barra.png);
+	height:44px;
+	font-family:  Helvetica, sans-serif;
+	font-size: 16px;
+	color: #0c6090;
+	width:100%;
+	z-index:5;
+	position:fixed;
+	clear:both;
+	margin-left:-4px;
+	margin-top:-14px;
 	
- 
+	
+	}
