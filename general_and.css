@@ -390,16 +390,17 @@ body{
 /*Minuto a Minuto*/
 .Minuto_A_Minuto {
 	width: 100%;
-	background-image: url(imagenes/minuto_and.png);
-	background-size:95%;
-	background-position: top;
-	background-size:contain;
+	/*background-image: url(imagenes/minuto_and.png);*/
+	background:#000;
+	/*background-size:95%;*/
+	/*background-position: top;
+	background-size:contain;*/
 	background-repeat:no-repeat;
 	height:259px;
 	font-size:12px;
-	padding-top:45px;
+	padding-top:60px;
 	padding-left:15px;
-	max-width:4430px;
+	width:430px;
 	/*width:363px;
 	height:185px;*/
 	
@@ -786,7 +787,7 @@ body{
 	background:url(imagenes/navegacion.jpg) no-repeat;
 	width:100%;
 	height:100%;
-	background-size:100% 90%;
+	background-size:100% 100%;
 	text-align:center;
 	}
 /*Mapa*/
@@ -795,7 +796,7 @@ body{
 	background:url(imagenes/mapa.png) no-repeat;
 	width:100%;
 	height:100%;
-	background-size:100% 92%;
+	background-size:100% 100%;
 }
 
 
@@ -807,7 +808,7 @@ body{
 	background:url(imagenes/navegacion.jpg) no-repeat;
 	width:100%;
 	height:100%;
-	background-size:100% 92%;
+	background-size:100% 100%;
 	text-align:center;
 	}
 /*Mapa*/
@@ -1233,9 +1234,8 @@ body{
 }
 .contUbicacion,.contNavegacion
 {
-	width:98%;
-	overflow:scroll; 
-	height:92%;
+	width:100%;
+	height:100%;
 }
 
 
