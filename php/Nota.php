@@ -167,6 +167,13 @@ $ContenidoExtra.='
 
 endwhile;
 
+$limpiar="
+<script>
+
+
+</script>
+";
+
 $html.="&".$ContenidoExtra;
 //$arr1["nota_extra"]=$ContenidoExtra;
 //echo $html;
