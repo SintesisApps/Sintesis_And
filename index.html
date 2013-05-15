@@ -301,7 +301,7 @@
 function LeerNota(id)
 	{
 		 CargarNoticiasHome();
-		 $('.ExtrasPlaza').html('<img src="imagenes/loading.gif" />');
+		 //$('.ExtrasPlaza').html('<img src="imagenes/loading.gif" />');
 			$.ajax(
 			{
 
@@ -356,8 +356,8 @@ function LeerNota(id)
 					datos[i].nota
 					);
 					
-					//$('.ExtrasPlaza').html(datos[i].nota_extra);
-					setInterval($('.ExtrasPlaza').html(datos[i].nota_extra),5000);
+					$('.ExtrasPlaza').html(datos[i].nota_extra);
+					//setInterval($('.ExtrasPlaza').html(datos[i].nota_extra),5000);
 					
 					
 					}
