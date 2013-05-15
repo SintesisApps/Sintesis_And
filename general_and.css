@@ -781,6 +781,22 @@ body{
 .galleriaNota li { float: left; width: 100%; }
 .galleriaNota li a { display: block; margin: 5px; border: 1px solid #3c3c3c; }
 .galleriaNota li img { display: block; width: 100%; height: auto; }
+/*guia de Navegacion*/
+#contNav{
+	background:url(imagenes/navegacion.jpg) no-repeat;
+	width:100%;
+	height:100%;
+	background-size:100% 90%;
+	text-align:center;
+	}
+/*Mapa*/
+#map_canvas
+{
+	background:url(imagenes/mapa.png) no-repeat;
+	width:100%;
+	height:100%;
+	background-size:100% 92%;
+}
 
 
 
@@ -788,17 +804,11 @@ body{
 
 /*guia de Navegacion*/
 #contNav{
-	background:url(imagenes/navegacion.png) no-repeat;
+	background:url(imagenes/navegacion.jpg) no-repeat;
 	width:100%;
 	height:100%;
-	background-size:100% 100%;
+	background-size:100% 92%;
 	text-align:center;
-	/*width:100%;
- height:80%; 
- background:url(imagenes/guia.png) no-repeat; 
- background-size:770px; 
- background-position:center center;
-  margin-top:10px;*/
 	}
 /*Mapa*/
 #map_canvas
@@ -888,9 +898,11 @@ body{
 	width:62%;
 }
 /*Div Medio*/
+
  }
  
  @media screen and (min-width: 0px) and (max-width: 958px) {
+
 
 
 	 /*Slide Vertical*/
@@ -1221,9 +1233,9 @@ body{
 }
 .contUbicacion,.contNavegacion
 {
-	width:100%;
+	width:98%;
 	overflow:scroll; 
-	height:100%;
+	height:92%;
 }
 
 
