@@ -11,7 +11,7 @@ include('../../funciones.php');
 			//$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' AND estatus='1' ORDER BY id DESC";
 			$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal' and estatus='1' 
 							UNION
-						SELECT * FROM app_publicidad where posicion='slide-principal' and dispositivo='ios' and estatus='1'
+						SELECT * FROM app_publicidad where posicion='slide-principal' and dispositivo='android' and estatus='1'
 						ORDER BY orden ASC";
 			
 	$r_app=mysql_query($select_app,$conexion);
@@ -26,8 +26,8 @@ include('../../funciones.php');
 		{
 				$html.='
 				<div style="display:inline-block; overflow:hidden">
-					  <div class="PublicidadSlidePrincipal">
-					  <img src="'.$url_dominio_.'/images/imagenes-publicidad/'.$f_app['ruta'].'" >
+					  <div class="PublicidadSlidePrincipal">'.$f_app['ruta'].'
+					  <!--<img src="'.$url_dominio_.'/images/imagenes-publicidad/'.$f_app['ruta'].'" >-->
 					  </div>                              
 					</div>
 				';
