@@ -95,7 +95,8 @@
 	width:200px;
 	text-align:center;
 	center;color:#FFF; 
-	vertical-align:top; 
+	vertical-align:top;
+	margin-top:20px; 
 	background-image:url(../imagenes/patron-brick.png);
 
     -webkit-transform: translate(0, -45%);
