@@ -127,7 +127,7 @@
 				$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_vertical_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -145,7 +145,7 @@
 			$('#minuto_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/minutoaminuto_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/minutoaminuto.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -192,7 +192,7 @@
 				$('.DivVertical_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_vertical_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -218,7 +218,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas.php",
 				data: "plaza="+plaza,
 				cache: false,
 				success: function(message)
@@ -259,7 +259,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/cargar_seccion_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/cargar_seccion.php",
 				data: "seccion="+seccion,
 				cache: false,
 				success: function(message)
@@ -302,7 +302,7 @@ function LeerNota(id)
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/Nota_and.php",
+				url: "http://166.78.193.53/APPSintesis/php/Nota.php",
 				data: "id="+id,
 				cache: false,
 				success: function(message)
