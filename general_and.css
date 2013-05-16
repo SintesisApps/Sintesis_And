@@ -371,7 +371,7 @@ body{
 	width: 62.9%;
 	/*background: rgba(204,204,204,.4);*/
 	background: rgba(12,132,56,.4);
-	height:265px;
+	height:279px;
 	display:inline-block;
 	vertical-align:top;
 	margin:7px;
@@ -383,7 +383,7 @@ body{
 .ContenedorMinutovideo {
 	width: 56%;
 	display:inline-block;
-	height:auto;
+	height:279px;
 	float:left;
 	background:#000;
 	margin-top:10px;
