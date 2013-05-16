@@ -27,7 +27,7 @@ $seccion="nacion";
 				//$select_app="SELECT * FROM app_articulos WHERE plaza='nacionales' AND estatus='1' and posicion='Slide-Principal' ORDER BY id DESC  ";
 				$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='nacionales'
 											UNION
-										SELECT * FROM app_publicidad where posicion='principal-interior' and dispositivo='ios' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
+										SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and plaza='nacionales' ORDER BY orden DESC";
 				
 					$r_app=mysql_query($select_app,$conexion);
 					while($f_app=mysql_fetch_assoc($r_app)):
@@ -113,8 +113,8 @@ $seccion="nacion";
 				
 				$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='nacionales'
 											UNION
-								SELECT * FROM app_publicidad where posicion='slide-vertical' and dispositivo='ios' and estatus='1'  and plaza='nacionales'
-								ORDER BY orden ASC";
+								SELECT * FROM app_publicidad where posicion='Slide-Vertical' and estatus='1'  and plaza='nacionales'
+								ORDER BY orden DESC";
 				
 				
 				$r_app=mysql_query($select_app,$conexion);
@@ -275,18 +275,19 @@ $seccion="nacion";
 				/*ultimas noticias*/
 				
 				
-				$video='<a href="#video" onClick="galeria_video(\'nacionales\')"><div class="Video" id="video_Seccion"> <img src="imagenes/video3.jpg"> </div></a>';
 				
-			$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' and plaza='nacionales' ORDER BY orden ASC";
-			$puclicidad=mysql_query($pub,$conexion);
-			$ruta_publi="";
-			while($array_pub=mysql_fetch_array($puclicidad))
-			{
-				$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  />  </div>";
-			}
-			
-			$script='<script>
-			$("#sup_img_prin_sec").html("'.$ruta_publi.'");</script>';
+				
+				//publicidad
+				$pub="SELECT * FROM app_publicidad WHERE posicion='footer' and  plaza='nacionales' ORDER BY id DESC LIMIT 1";
+				$puclicidad=mysql_query($pub,$conexion);
+				$array_pub=mysql_fetch_array($puclicidad);
+				
+				
+				$ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
+				$script='<script>
+				$("div.Suplementos img").attr("src","");
+				$("div.Suplementos img").css({"height":"38.5%"});
+				$("div.ContSuplemento img").attr("src","'.$ruta_publi.'");</script>';
 				
 				//recarga
 				
@@ -296,7 +297,6 @@ $seccion="nacion";
 					'slide_principal' => $slide_principal,
 					'slide_vertical' => $slide_vertical,
 					'ultimas_noticias' => $script.$ultimas_noticias,
-					'video' => $video,
 					'pseudo' => $seccion,
 					);
 					
@@ -315,7 +315,7 @@ $seccion_slidePrincipal='<div style="float:left;margin-right:-30000px;">
 
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='".$plaza."'
 							UNION
-						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and dispositivo='ios' and plaza='".$plaza."' ORDER BY orden ASC";
+						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and plaza='".$plaza."' ORDER BY orden DESC";
 
 
 
@@ -405,8 +405,8 @@ $slide_vertical='<div  class="ContenedorSlideVertical" >';
 //$select_app="SELECT * FROM app_articulos WHERE plaza='".$plaza."' AND estatus='1' and posicion='Slide-Vertical' ORDER BY id DESC	 ";
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='".$plaza."'
 							UNION
-				SELECT * FROM app_publicidad where posicion='slide-vertical' and estatus='1' and dispositivo='ios'  and plaza='".$plaza."'
-				ORDER BY orden ASC";
+				SELECT * FROM app_publicidad where posicion='Slide-Vertical' and estatus='1'  and plaza='".$plaza."'
+				ORDER BY orden DESC";
 
 
 
@@ -521,9 +521,9 @@ while($f_app2=mysql_fetch_assoc($r_app2)):
 	
 	$r_ar2=mysql_query($select_ar2,$conexion);
 	while($f_ar2=mysql_fetch_assoc($r_ar2)):
-		$Titulo_nota2=$f_ar2['titulo'];
+		$Titulo_nota2=$f_ar2['titulo'];;
 		
-		//$Titulo_nota2=utf8_encode($Titulo_nota2);
+		$Titulo_nota2=utf8_encode($Titulo_nota2);
 		
 		$Titulo_nota2=substr($Titulo_nota2,0,36)."...";
 		$fecha_publicacion=$f_ar2['fecha_publicacion'];
@@ -535,7 +535,7 @@ while($f_app2=mysql_fetch_assoc($r_app2)):
 	$ultimas_noticias.='
 		<div style="width:87%;margin-left:10px;"><a href="#nota" onclick="LeerNota('.$id_nota_app2.')">
           <div style="display:inline-block; color: rgb(0,85,143);">'.$fecha_publicacion.' </div>
-          <div style="display:inline-block; color: rgb(151,151,151);"> / '.utf8_encode($Titulo_nota2).'</div></a>
+          <div style="display:inline-block; color: rgb(151,151,151);"> / '.$Titulo_nota2.'</div></a>
           <hr>
         </div>
 	';
@@ -560,7 +560,7 @@ else
 $info_plaza=mysql_query("SELECT * FROM plazas WHERE seudonimo='".$plaza_app."'");
 $array_plaza=mysql_fetch_array($info_plaza);
 
-$url_video=$array_plaza['seudonimo'];	
+$url_video=$array_plaza['id_plaza'];	
 }
 
 
@@ -569,18 +569,16 @@ $url_video=$array_plaza['seudonimo'];
 $video='<a href="#video" onClick="galeria_video(\''.$url_video.'\')"><div class="Video" id="video_Seccion"> <img src="imagenes/video3.jpg"> </div></a>';
 
 //publicidad
-$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' and  plaza='".$plaza."'  ORDER BY orden ASC";
+$pub="SELECT * FROM app_publicidad WHERE posicion='footer' and  plaza='".$plaza."' ORDER BY id DESC LIMIT 1";
 $puclicidad=mysql_query($pub,$conexion);
-$ruta_publi="";
-while($array_pub=mysql_fetch_array($puclicidad))
-{
-	$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  />  </div>";
-}
+$array_pub=mysql_fetch_array($puclicidad);
 
+
+$ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
 $script='<script>
-$("#sup_img_prin_sec").html("'.$ruta_publi.'");</script>';
-
-
+$("div.Suplementos img").attr("src","");
+$("div.Suplementos img").css({"height":"38.5%"});
+$("div.ContSuplemento img").attr("src","'.$ruta_publi.'");</script>';
 	
 	$arr1[$i]=array(
 	'titulo_seccion' => $PlazaNota,
