@@ -23,7 +23,7 @@ $i="0";
 //$select_app="SELECT * FROM app_articulos WHERE plaza='nacionales' AND estatus='1' and posicion='Slide-Principal' ORDER BY id DESC  ";
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='nacionales'
 							UNION
-						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
+						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and plaza='nacionales' ORDER BY orden DESC";
 
 	$r_app=mysql_query($select_app,$conexion);
 	while($f_app=mysql_fetch_assoc($r_app)):
@@ -75,29 +75,11 @@ $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interio
 		$SeccionPlaza=utf8_encode($SeccionPlaza);
 	endwhile;
 	
-	
-	if($id_seccion==7)
-	{
-		$c_co="SELECT * FROM columnistas WHERE nombre_completo LIKE '%".$AutorPlaza."%'";
-						$r_co=mysql_query($c_co,$conexion);
-						while($f_co=mysql_fetch_assoc($r_co)):
-							$id_columnista=$f_co['id'];
-							$nombre_columnista=$f_co['nombre_completo'];
-							$foto=$f_co['foto'];
-						
-							$nombre_columnista=utf8_encode($nombre_columnista);
-							$foto=utf8_encode($foto);
-						endwhile;
-						$imagen_p="imagenes-columnistas/".$foto;
-	}
-	else
-	{$imagen_p="imagenes-articulos/".$imagenPlaza;}
-	
 		
 		$slide_principal.='
 		<a href="#nota" onclick="LeerNota('.$id_nota_app.')">
               <div class="ContenidoPrincipalSeccion">
-                <div class="ImagenPrincipalSeccion"><img src="'.$url_dominio_.'/images/'.$imagen_p.'" ></div>
+                <div class="ImagenPrincipalSeccion"><img src="'.$url_dominio_.'/images/imagenes-articulos/'.$imagenPlaza.'" ></div>
                 <div class="TextoPrincipalSeccion">
                   <div class="TituloPrincipalSeccion">'.$TituloPlaza.'</div>
                   <div class="SeccionPrincipalSeccion">'.$SeccionPlaza.'</div>
@@ -128,7 +110,7 @@ $cont_pub=0;
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='nacionales'
 							UNION
 				SELECT * FROM app_publicidad where posicion='Slide-Vertical' and estatus='1'  and plaza='nacionales'
-				ORDER BY orden ASC";
+				ORDER BY orden DESC";
 
 
 $r_app=mysql_query($select_app,$conexion);
@@ -289,21 +271,18 @@ endwhile;
 /*ultimas noticias*/
 
 
-$video='<a href="#video" onClick="galeria_video(\'nacionales\')"><div class="Video" id="video_Seccion"> <img src="imagenes/video3.jpg"> </div></a>';
 
 //publicidad
-$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios'  and  plaza='nacionales' ORDER BY orden ASC";
+$pub="SELECT * FROM app_publicidad WHERE posicion='footer' and  plaza='nacionales' ORDER BY id DESC LIMIT 1";
 $puclicidad=mysql_query($pub,$conexion);
-$ruta_publi="";
-while($array_pub=mysql_fetch_array($puclicidad))
-{
-	$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  />  </div>";
-}
+$array_pub=mysql_fetch_array($puclicidad);
 
+
+$ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
 $script='<script>
-$("#sup_img_prin_sec").html("'.$ruta_publi.'");</script>';
-
-
+$("div.Suplementos img").attr("src","");
+$("div.Suplementos img").css({"height":"38.5%"});
+$("div.Suplementos img").attr("src","'.$ruta_publi.'");</script>';
 
 //recarga
 
@@ -313,7 +292,6 @@ $arr_seccion[$i]=array(
 	'slide_principal' => $slide_principal,
 	'slide_vertical' => $slide_vertical,
 	'ultimas_noticias' => $script.$ultimas_noticias,
-	'video' => $video,
 	'pseudo' => $seccion,
 	);
 	

@@ -82,14 +82,12 @@
 	padding-top:10px;
 	margin:auto;
 	text-align:left;
-	z-index:10;
 	
 	}
 .panelSeccionSpacer{
 	width:99%;
 	height:2px;
 	background-image: -webkit-linear-gradient(left , rgba(255,255,255,.0) 0%, rgb(79,198,244) 50%, rgba(255,255,255,.0) 100%);
-	z-index:10;
 	}
 .paneSeccionEdicion{
 	margin-top:20px;
@@ -99,7 +97,6 @@
 	padding-top:10px;
 	font-size:16px;
 	color:#FFF;
-	z-index:10;
 	}
 
 .closeSeccion {

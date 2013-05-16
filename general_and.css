@@ -34,10 +34,20 @@ body{
 	}
 	
 #pie_pag
-{
-	 margin-top:3px;
-	 position:absolute;
-	 bottom:0px;
+{/*style="position:fixed; bottom:0; vertical-align:top"*/
+
+	 /*bottom:0; */
+	 /*
+	 vertical-align:top;
+	 margin-top:-200px;
+	 	position:absolute;*/
+	 /*clear:both;
+	 style=""
+	 */
+	/* position:fixed;
+	  bottom:0;
+	   vertical-align:top;*/
+	
 }
 .DialogoPlaza{
 	width:250px;
@@ -361,7 +371,7 @@ body{
 	width: 62.9%;
 	/*background: rgba(204,204,204,.4);*/
 	background: rgba(12,132,56,.4);
-	height:276px;
+	height:265px;
 	display:inline-block;
 	vertical-align:top;
 	margin:7px;
@@ -373,7 +383,7 @@ body{
 .ContenedorMinutovideo {
 	width: 56%;
 	display:inline-block;
-	height:275px;
+	height:auto;
 	float:left;
 	background:#000;
 	margin-top:10px;
