@@ -17,7 +17,7 @@ function solo_hora($date_hora)
 }
 
 $html="";
-$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 4";
+$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 7";
 $r_app=mysql_query($select_app,$conexion);
 
 while($f_app=mysql_fetch_assoc($r_app)):
@@ -42,7 +42,7 @@ while($f_app=mysql_fetch_assoc($r_app)):
 		$Autor=utf8_encode($Autor);
 		$Nota=utf8_encode($Nota);
 		
-		$Titulo_nota=substr($Titulo_nota,0,35)."...";;
+		$Titulo_nota=substr($Titulo_nota,0,36)."...";;
 	endwhile;
 	/*
 	<a href="#nota" onclick="LeerNota('.$id_nota_app.')">
@@ -59,18 +59,15 @@ while($f_app=mysql_fetch_assoc($r_app)):
 
 endwhile;
 
-
-$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' ORDER BY orden ASC";
+$pub="SELECT * FROM app_publicidad WHERE posicion='footer' ORDER BY id DESC LIMIT 1";
 $puclicidad=mysql_query($pub,$conexion);
-$ruta_publi="";
-while($array_pub=mysql_fetch_array($puclicidad))
-{
-	$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  />  </div>";
-}
+$array_pub=mysql_fetch_array($puclicidad);
 
-$script='<script>
-$("#sup_img_prin").html("'.$ruta_publi.'");</script>';
-
+$ruta_publi="http://166.78.193.53/images/imagenes-publicidad/".$array_pub['ruta'];
+/*$script='<script>
+$("div.Suplementos img").attr("src","");
+$("div.Suplementos img").css({"height":"89.5%"});
+$("div.ContSuplemento img").attr("src","'.$ruta_publi.'");</script>';*/
 
 echo $script.$html;
 
