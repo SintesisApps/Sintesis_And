@@ -189,7 +189,7 @@
 		CargarNoticiasHomeGal();
 		function slideVertical2()
 			{//ContenedorDivMedio
-				$('.DivVertical').html('<img src="imagenes/loading.gif" />');
+				$('#vertical_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 				type: "POST",
 				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
@@ -198,7 +198,7 @@
 				success: function(message)
 				{
 					
-					$('.DivVertical').html(
+					$('#vertical_home').html(
 					' <div  class="ContenedorSlideVertical" id="content_slideVertical" >'+message+'</div>'
 					
 					)
@@ -401,7 +401,7 @@ function LeerNota(id)
   <!--Slide Miniaturas--> 
   
   <!--Slide Vertical-->
-  <div class="DivVertical">
+  <div class="DivVertical" id="vertical_home">
     <div  class="ContenedorSlideVertical" id="content_slideVertical" >
 
     </div>
@@ -697,7 +697,7 @@ function LeerNota(id)
 
 
 <!--Footer-->
-<div class="HeaderAlternativo" id="pie_pag">
+<div class="HeaderAlternativo" id="pie_pag" style="position:fixed; bottom:0; vertical-align:top">
   
    <div style=" display:inline-block; text-align:center; position:absolute; z-index:10; width:100%;"> <a href="#guia"> <img src="imagenes/iconos/azules/guia@2x.png" width="50" > </a> </div>
   

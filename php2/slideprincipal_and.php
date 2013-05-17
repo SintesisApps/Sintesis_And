@@ -26,8 +26,8 @@ include('../../funciones.php');
 		{
 				$html.='
 				<div style="display:inline-block; overflow:hidden">
-					  <div class="PublicidadSlidePrincipal">'.$f_app['ruta'].'
-					  <!--<img src="'.$url_dominio_.'/images/imagenes-publicidad/'.$f_app['ruta'].'" >-->
+					  <div class="PublicidadSlidePrincipal">
+					  <img src="'.$url_dominio_.'/images/imagenes-publicidad/'.$f_app['ruta'].'" >
 					  </div>                              
 					</div>
 				';

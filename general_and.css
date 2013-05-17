@@ -34,19 +34,12 @@ body{
 	}
 	
 #pie_pag
-{/*style="position:fixed; bottom:0; vertical-align:top"*/
-
-	 /*bottom:0; */
-	 /*
-	 vertical-align:top;
-	 margin-top:-200px;
-	 	position:absolute;*/
-	 /*clear:both;
-	 style=""
-	 */
-	/* position:fixed;
-	  bottom:0;
-	   vertical-align:top;*/
+{ 
+	/*margin-top:0px;
+	 position:fixed;
+	 clear:both;*/
+/*	 vertical-align:top;
+	 margin-top:-18px;*/
 	
 }
 .DialogoPlaza{
