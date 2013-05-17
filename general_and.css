@@ -1295,11 +1295,12 @@ margin-left:200px;*/
 	height:300px;
 }
  .HeaderAlternativo_footer{
-	background-image:url(imagenes/barra.png);
-	/*height:44px;
+	/*background-image:url(imagenes/barra.png) no-repeat;*/
+	background:#000;
+	height:100px;
 	font-family:  Helvetica, sans-serif;
-	font-size: 16px;
-	color: #0c6090;
+	
+	/*color: #0c6090;
 	width:100%;
 	z-index:5;*/
 	/*position:fixed;
