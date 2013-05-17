@@ -35,7 +35,7 @@ body{
 	
 #pie_pag
 { 
-position:fixed; bottom:0; vertical-align:top
+/*position:fixed; bottom:0; vertical-align:top*/
 /*
 margin-top:-200px;
 margin-left:200px;*/
@@ -1296,16 +1296,16 @@ margin-left:200px;*/
 }
  .HeaderAlternativo_footer{
 	background-image:url(imagenes/barra.png);
-	height:44px;
+	/*height:44px;
 	font-family:  Helvetica, sans-serif;
 	font-size: 16px;
 	color: #0c6090;
 	width:100%;
-	z-index:5;
-	position:fixed;
+	z-index:5;*/
+	/*position:fixed;
 	clear:both;
 	margin-left:-4px;
-	margin-top:-14px;
+	margin-top:0px;*/
 	
 	
 	}
