@@ -112,7 +112,7 @@
 				$('#cont_slidemini').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_miniatura.php",
+				url: "http://166.78.193.53/APPSintesis/php/slide_miniatura_and.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -218,7 +218,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas.php",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas_and.php",
 				data: "plaza="+plaza,
 				cache: false,
 				success: function(message)
@@ -259,7 +259,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/cargar_seccion.php",
+				url: "http://166.78.193.53/APPSintesis/php/cargar_seccion_and.php",
 				data: "seccion="+seccion,
 				cache: false,
 				success: function(message)
@@ -302,7 +302,7 @@ function LeerNota(id)
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/Nota.php",
+				url: "http://166.78.193.53/APPSintesis/php/Nota_and.php",
 				data: "id="+id,
 				cache: false,
 				success: function(message)
