@@ -90,7 +90,7 @@
 	background-image: -webkit-linear-gradient(left , rgba(255,255,255,.0) 0%, rgb(79,198,244) 50%, rgba(255,255,255,.0) 100%);
 	}
 .paneSeccionEdicion{
-	margin-top:20px;
+	margin-top:15px;
 	width:99%;
 	height:30px;
 	background-image: -webkit-linear-gradient(left , rgba(255,255,255,0) 0%, rgb(113,156,185) 30%, rgba(0,85,143,.8) 50%, rgb(113,156,185) 70%, rgba(255,255,255,0) 100%);
