@@ -1292,9 +1292,7 @@ margin-left:200px;*/
 #contenedor_general
 {
 	width:1200px;
-	height:697px;
-	position:fixed;
-	margin:0px auto;
+	height:300px;
 }
  .HeaderAlternativo_footer{
 	background-image:url(imagenes/barra.png);
