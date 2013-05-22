@@ -203,18 +203,21 @@ endwhile;
 //echo $html;
 $css='
 <style>
- @media screen and (min-width: 0px) and (max-width: 2800px) {
+ @media screen and (min-width: 0px) and (max-width: 1024px) {
  .ImagenesNotaImagen img{
 	  width:400px;
 	  }
  }
-
+ @media screen and (min-width: 0px) and (max-width: 768px) {
+ .ImagenesNotaImagen img{
+	  width:300px;
+	  }
+ }
 </style>
 <script>
 
 </script>
 ';
-
 
 
 
