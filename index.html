@@ -25,16 +25,16 @@
 <script type="text/javascript">
 	$(document).ready(function(e){
 	document.addEventListener("deviceready", function(){
-		 
+		 //mantenemos el loding por 15 segundo
 		
-		//alert("conectado");
+
 			slidePrincipal();
 			slideMiniatura();
 			slideVertical();
 			minuto_minuto();
 			CargarNoticiasHomeGal();	
 	
-		
+		setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
 	
 		
 	
@@ -91,7 +91,7 @@
 	
 			function slidePrincipal()
 			{
-				$('#cont_slideprincipal').html('<img src="imagenes/loading.gif" />');
+				//$('#cont_slideprincipal').html('<img src="imagenes/loading.gif" />');
 				 $.ajax({
 				
 				type: "POST",
@@ -100,7 +100,8 @@
 				cache: false,
 				success: function(message)
 				{
-				setInterval($('#cont_slideprincipal').html(message),5000);
+				//setInterval($('#cont_slideprincipal').html(message),5000);
+				$('#cont_slideprincipal').html(message)
 				}
 				
 				});
@@ -109,7 +110,7 @@
 			}
 			function slideMiniatura()
 			{
-				$('#cont_slidemini').html('<img src="imagenes/loading.gif" />');
+				//$('#cont_slidemini').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
 				url: "http://166.78.193.53/APPSintesis/php/slide_miniatura_and.php",
@@ -117,14 +118,15 @@
 				cache: false,
 				success: function(message)
 				{	
-				setInterval($('#cont_slidemini').html(message),5000);
+				//setInterval($('#cont_slidemini').html(message),5000);
+				$('#cont_slidemini').html(message)
 				
 				}
 				});
 			}
 			function slideVertical()
 			{
-				$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
+				//$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
 				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
@@ -132,7 +134,8 @@
 				cache: false,
 				success: function(message)
 				{	
-				setInterval($('#content_slideVertical').html(message),5000);
+				//setInterval($('#content_slideVertical').html(message),5000);
+				$('#content_slideVertical').html(message)
 				}
 				});
 			}
@@ -142,7 +145,7 @@
 			
 			function minuto_minuto()
 			{
-			$('#minuto_home').html('<img src="imagenes/loading.gif" />');
+			//$('#minuto_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
 				url: "http://166.78.193.53/APPSintesis/php/minutoaminuto_and.php",
@@ -150,7 +153,8 @@
 				cache: false,
 				success: function(message)
 				{	
-				setInterval($('#minuto_home').html(message),5000);
+				//setInterval($('#minuto_home').html(message),5000);
+				$('#minuto_home').html(message)
 					
 				
 				}
@@ -297,12 +301,19 @@
 
 function LeerNota(id)
 	{ CargarNoticiasHome();
-		$('.ExtrasPlaza').html('<img src="imagenes/loading.gif" />');
+	document.getElementById("cargando").style.display='';
+		//$('.ExtrasPlaza').html('<img src="http://166.78.193.53/RecursosApp/ios/imagenes/loading.gif" />');
+		document.getElementById("div_nt").innerHTML="";
+						document.getElementById("div_ns").innerHTML="";
+						document.getElementById("div_na").innerHTML="";
+						document.getElementById("div_nfc").innerHTML="";
+						document.getElementById("div_nc").innerHTML="";
+						document.getElementById("div_nep").innerHTML="";
 			$.ajax(
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/Nota_and.php",
+				url: "http://166.78.193.53/RecursosApp/ios/php/Nota_pr.php",
 				data: "id="+id,
 				cache: false,
 				success: function(message)
@@ -311,19 +322,14 @@ function LeerNota(id)
 					for(i=0;i<datos.length;i++)
 					{
 						
+						
+						//modificamos las imagenes
 					
-					/*$('.ImagenesNotaImagen').html(
+					//$('#Gallery').html(
+					$('#img_cont').html(
+					datos[i].imagen
+					);
 					
-					//'<img src="http://166.78.193.53/images/imagenes-articulos/'+datos[i].imagen+'">'+
-					//'<a href="http://166.78.193.53/images/imagenes-articulos/'+datos[i].imagen+'" >'+
-					'<img src="http://166.78.193.53/images/'+datos[i].imagen+'">'+
-					'<div class="ZoomImagenNota">'+
-						'<a href="http://166.78.193.53/images/'+datos[i].imagen+'" >'+
-						'</a>'+
-					'</div>'+
-					'<div class="MasImagenNota">'+
-					'</div>'
-					);*/
 					
 					document.getElementById("name_section").innerHTML="";
 					$('.NotaSeccion').html(
@@ -354,10 +360,11 @@ function LeerNota(id)
 					datos[i].nota
 					);
 					
-					//$('.ExtrasPlaza').html(datos[i].nota_extra);
-					setInterval($('.ExtrasPlaza').html(datos[i].nota_extra),5000);
+					//setInterval($('.ExtrasPlaza').html(datos[i].nota_extra),5000);
+					$('.ExtrasPlaza').html(datos[i].nota_extra)
 					
 					
+					setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
 					}
 				
 				}
@@ -365,10 +372,19 @@ function LeerNota(id)
 	}
 
 
+
 </script>
 
 </head>
-<!-- <body onload="initialize()">-->
+<div class="lb-overlay" id="cargando" style="display:''"> <img src="imagenes/loading.gif"> </div>
+<script>
+/*
+function loading()
+{//alert("leading");
+document.getElementById("cargando").style.display='none';
+}
+setInterval(function(){document.getElementById("cargando").style.display='none'},10000);*/
+</script>
 <body>
 <!-- Home -->
 <div id="home" class="content" >
@@ -441,46 +457,21 @@ function LeerNota(id)
   <div id="contenedor_Nota" id="ref_contenedor_Nota">
   	<div class="NotaContenedor" >
             
-   		<div id="Gallery"  class="SlidePrincipal ImagenesNota" >
-   		
-        <div style="display:inline-block; overflow:hidden">
-          <div class="ImagenesNotaImagen">
-          	<img src="imagenes/imagenes-articulos/1.jpg">
-          	<div class="ZoomImagenNota">
-                <a href="imagenes/imagenes-articulos/1.jpg" id="">
-                <img src="imagenes/iconos/azules/ampliar@2x.png">
-                </a>
-            </div>
-            <div class="MasImagenNota">
-              	<img src="imagenes/iconos/azules/otras@2x.png">
-          	</div>
-         </div>
+   		<div id="img_cont">
+        
+        
         </div>
-        <div style="display:inline-block; overflow:hidden">
-          <div class="ImagenesNotaImagen">
-              <img src="imagenes/imagenes-articulos/2.jpg">
-              <div class="ZoomImagenNota">
-                  <a href="imagenes/imagenes-articulos/2.jpg">
-                    <img src="imagenes/iconos/azules/ampliar@2x.png">
-                  </a>
-              </div>
-          
-          </div>
-        </div>
-      
-      
-   		 </div>
   
   
-        <div class="NotaTitulo"></div>
-        <div class="NotaSumario"></div>
+        <div class="NotaTitulo" id="div_nt"></div>
+        <div class="NotaSumario" id="div_ns"></div>
         
-         <div class="NotaAutor"></div>
-         <div class="NotaFechaCreacion"></div>
+         <div class="NotaAutor" id="div_na"></div>
+         <div class="NotaFechaCreacion" id="div_nfc"></div>
         
-        <div class="NotaCompleta"> </div>
+        <div class="NotaCompleta" id="div_nc"> </div>
         
-        <div class="ExtrasPlaza">
+        <div class="ExtrasPlaza" id="div_nep">
           <!--  PHP-->
          </div>
             
