@@ -1,7 +1,7 @@
 <?php
 /*slide miniaturas*/
-include("../../includes/conexion.php");
-include('../../funciones.php'); 
+include("../../../includes/conexion.php");
+include('../../../funciones.php'); 
 
 $html="";
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Miniaturas' AND estatus='1' ORDER BY id DESC";

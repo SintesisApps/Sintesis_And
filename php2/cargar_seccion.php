@@ -1,7 +1,7 @@
 <?php
 /*Notas de las secciones, tabla Nacionales*/
-include("../../includes/conexion.php");
-include('../../funciones.php'); 
+include("../../../includes/conexion.php");
+include('../../../funciones.php'); 
 
 $seccion=$_POST["seccion"];
 
@@ -23,7 +23,7 @@ $i="0";
 //$select_app="SELECT * FROM app_articulos WHERE plaza='nacionales' AND estatus='1' and posicion='Slide-Principal' ORDER BY id DESC  ";
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='nacionales'
 							UNION
-						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
+						SELECT * FROM app_publicidad where posicion='principal-interior' and dispositivo='ios' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
 
 	$r_app=mysql_query($select_app,$conexion);
 	while($f_app=mysql_fetch_assoc($r_app)):
@@ -127,7 +127,7 @@ $cont_pub=0;
 
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='nacionales'
 							UNION
-				SELECT * FROM app_publicidad where posicion='Slide-Vertical' and estatus='1'  and plaza='nacionales'
+				SELECT * FROM app_publicidad where posicion='slide-vertical' and estatus='1' and dispositivo='ios'  and plaza='nacionales'
 				ORDER BY orden ASC";
 
 

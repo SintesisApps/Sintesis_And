@@ -1,8 +1,7 @@
 
 <?php
-include("../../includes/conexion.php");
-include('../../funciones.php'); 
-//include('funciones.js'); 
+include("../../../includes/conexion.php");
+include('../../../funciones.php'); 
 
 function extraer_imagen_nota($cadena){
 	
@@ -44,6 +43,7 @@ $select_app="SELECT * FROM app_articulos WHERE id='".$id."'";
 		$Autor=$f_ar['autor'];
 		$Nota=$f_ar['nota'];
 		$Fecha_Creacion_p=$f_ar['fecha_creacion'];
+		$Nota_extraer=$f_ar['nota'];
 		
 		$Titulo_p=utf8_encode($Titulo);
 		$Sumario_p=utf8_encode($Sumario);
@@ -52,16 +52,7 @@ $select_app="SELECT * FROM app_articulos WHERE id='".$id."'";
 		
 		$imagen=extraer_imagen_nota($Nota);
 		$imagen_p=$imagen;
-		/*
-		$imagen=extraer_imagen($Nota);
-		$imagen_p=utf8_decode($imagen);
-		$Nota=extraer_nota($Nota);
-		$Nota=utf8_decode($Nota);
 		
-		$imagen=extraer_imagen($Nota);
-		$imagen=utf8_decode($imagen);
-		
-		*/
 		$Nota=strip_tags($Nota);
 		$Nota_p=utf8_encode($Nota);
 		
@@ -149,28 +140,45 @@ $select_ar="SELECT titulo,sumario,id_seccion,autor,fecha_creacion,nota FROM arti
 		
 	endwhile;
 	
+	if($Id_Seccion==7)
+	{
+		$c_co="SELECT * FROM columnistas WHERE nombre_completo LIKE '%".$Autor."%'";
+						$r_co=mysql_query($c_co,$conexion);
+						while($f_co=mysql_fetch_assoc($r_co)):
+							$id_columnista=$f_co['id'];
+							$nombre_columnista=$f_co['nombre_completo'];
+							$foto=$f_co['foto'];
+						
+							$nombre_columnista=utf8_encode($nombre_columnista);
+							$foto=utf8_encode($foto);
+						endwhile;
+						$imagen_vox="imagenes-columnistas/".$foto;		
+	}
+	else
+	{
+		$imagen_vox="imagenes-articulos/".$imagen;
+	}
 	
 	
+	//$imagen2=$url_dominio_.'/images/imagenes-articulos/'.$imagen;
 	
-	
-	
-			$imagen=$url_dominio_.'/images/imagenes-articulos/'.$imagen;
+			$imagen=$url_dominio_.'/images/'.$imagen_vox;
 	$Nota=str_replace($imagen,'',$Nota);
 
 $ContenidoExtra.='
 			<div class="NotaExtraContenedor">
-				<a href="#nota" onclick="LeerNota('.$id_nota_app.')" style="height:100px;">
-					<div class="NotaExtraTitulo borde_'.$SeccionSeudonimo.'" >
+				<a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+					<div class="NotaExtraTitulo borde_'.$SeccionSeudonimo.'" style="width:197px; height:59px;" >
 						'.substr($Titulo,0,50).'
 					</div>
 				</a>	
 			
 				
 				<div class="NotaExtraImagen" style="text-align:center">
-					<img src="'.$imagen.'" height="300" style="width:300px" >
+					<img src="'.$imagen.'" height="200" style="width:200px">
 				</div>
 				
-				<div class="NotaExtraSumario">
+				<div class="NotaExtraSumario" style="width:210px;">
 					'.substr($Sumario,0,70).'...
 				</div>
 				
@@ -190,7 +198,7 @@ $ContenidoExtra.='
 
 endwhile;
 
-$html.="&".$ContenidoExtra;
+//$html.="&".$ContenidoExtra;
 //$arr1["nota_extra"]=$ContenidoExtra;
 //echo $html;
 $css='
@@ -211,19 +219,91 @@ $css='
 </script>
 ';
 
-$scrip="
-<script>
-function prueba()
+/*
+$imagen_p="<div style=\'display:inline-block; overflow:hidden\'><div class=\'ImagenesNotaImagen\'><img src=\'http://166.78.193.53/APPSintesis/imagenes/imagenes-articulos/1.jpg\'><div class=\'ZoomImagenNota\'><a href=\'http://166.78.193.53/APPSintesis/imagenes/imagenes-articulos/1.jpg\' ><img src=\'http://166.78.193.53/APPSintesis/imagenes/iconos/azules/ampliar@2x.png\'></a></div><div class=\'MasImagenNota\'><img src=\'http://166.78.193.53/APPSintesis/imagenes/iconos/azules/otras@2x.png\'></div></div></div><div style=\'display:inline-block; overflow:hidden\'><div class=\'ImagenesNotaImagen\'><img src=\'http://166.78.193.53/APPSintesis/imagenes/imagenes-articulos/2.jpg\'><div class=\'ZoomImagenNota\'><a href=\'http://166.78.193.53/APPSintesis/imagenes/imagenes-articulos/2.jpg\'><img src=\'http://166.78.193.53/APPSintesis/imagenes/iconos/azules/ampliar@2x.png\'></a></div></div></div>";*/
 
+
+$imagen_p='<div id="Gallery"  class="SlidePrincipal ImagenesNota" >';
+
+function primera_imagen($texto) {
+    $foto = '';
+    ob_start();
+    ob_end_clean();
+    preg_match_all("/<img[\s]+[^>]*?src[\s]?=[\s\"\']+(.*\.([gif|jpg|png|jpeg]{3,4}))[\"\']+.*?>/", $texto, $array);
+    $foto = $array [1][0];
+    if(empty($foto)){
+        $foto = '';
+    }
+    return $foto;
+}
+$cadena=$Nota_extraer;
+$tamaño_total_cadena=strlen($cadena);
+$numero_veces= substr_count($cadena, '<img'); 
+$contador1==0;
+$limit_num_veces=$numero_veces-1;
+
+while($contador1!=$numero_veces )
 {
-	//alert('mensaje de prueba');	
+	$primera= primera_imagen($cadena); 
+	$tamaño_imagen=strlen($primera);
+	
+	 $imagen_p.='<div style="display:inline-block; overflow:hidden">
+          <div class="ImagenesNotaImagen">
+          	<img src="'.$primera.'">
+          	<div class="ZoomImagenNota">
+                <a href="'.$primera.'" id="">
+              
+                </a>
+            </div>
+            ';
+/*			if($numero_veces > 1 && $contador1==0) 
+*/			if($numero_veces > 1 && $contador1!=$limit_num_veces) 
+			{$imagen_p.='<div ><img style="width:32px; height:32px; position:relative;position:center center; margin-top:-20%; margin-left:80%;" src="imagenes/iconos/azules/otras@2x.png"></div>';
+				}
+              	
+          	$imagen_p.='
+         </div>
+        </div>';
+	 
+	 
+	 
+	$pos1 = strpos($cadena,'<img');
+	
+	$tamaño_aparicion_imagen=$pos1+$tamaño_imagen;
+	
+	$cadena= substr($cadena, $tamaño_aparicion_imagen);   
+	
+	
+	$contador1=$contador1+1;
 }
 
-$('#vertical_home').html('sdsdfshfkshfkshdfkhkhkh');
-prueba();
+$imagen_p.='
+   		 </div>
+		
+		<script>
+      jQuery(document).ready(function($) {
 
-</script>
-";
+  $(".SlidePrincipal").royalSlider({
+    autoHeight: false,
+    arrowsNav: false,
+    fadeinLoadedSlide: false,
+    controlNavigationSpacing: 0,
+    controlNavigation: "tabs",
+    imageScaleMode: "none",
+    imageAlignCenter:false,
+    loop: false,
+    loopRewind: true,
+    numImagesToPreload: 6,
+    keyboardNavEnabled: false,
+    usePreloader: true
+  });
+ 
+  
+  
+  });</script>
+		
+		';
+
 
 $arr1[$i]=array(
 	'titulo' => $Titulo_p,
@@ -231,7 +311,7 @@ $arr1[$i]=array(
 					'autor' => $Autor_p,
 					'nota' => $Nota_p,
 					'imagen' => $imagen_p,
-					'fecha' => $scrip.$Fecha_Creacion_p,
+					'fecha' => $Fecha_Creacion_p,
 	'seccion' => $Seccion,
 	'seccion_pseudo' => $SeccionSeudonimo,
 	'nota_extra' => $ContenidoExtra,

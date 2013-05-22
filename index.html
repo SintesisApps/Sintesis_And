@@ -75,7 +75,7 @@
 			{
 				$.ajax({
 						type: "POST",
-						url: "http://166.78.193.53/APPSintesis/php/CargarGaleriaImagenes2.php",
+						url: "http://166.78.193.53/RecursosApp/android/php/CargarGaleriaImagenes.php",
 						data: "",
 						cache: false,
 						success: function(message)
@@ -95,7 +95,7 @@
 				 $.ajax({
 				
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slideprincipal_and.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/slideprincipal_and.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -113,7 +113,7 @@
 				//$('#cont_slidemini').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_miniatura_and.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/slide_miniatura_and.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -129,7 +129,7 @@
 				//$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/slide_vertical.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -148,7 +148,7 @@
 			//$('#minuto_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 					type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/minutoaminuto_and.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/minutoaminuto_and.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -196,7 +196,7 @@
 				$('#vertical_home').html('<img src="imagenes/loading.gif" />');
 				$.ajax({
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/slide_vertical.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/slide_vertical.php",
 				data: "",
 				cache: false,
 				success: function(message)
@@ -220,7 +220,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas_and.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/CargarNoticiasPlazas_and.php",
 				data: "plaza="+plaza,
 				cache: false,
 				success: function(message)
@@ -258,7 +258,7 @@
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/APPSintesis/php/cargar_seccion_and.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/cargar_seccion_and.php",
 				data: "seccion="+seccion,
 				cache: false,
 				success: function(message)
@@ -299,7 +299,7 @@
 function LeerNota(id)
 	{ CargarNoticiasHome();
 	document.getElementById("cargando").style.display='';
-		//$('.ExtrasPlaza').html('<img src="http://166.78.193.53/RecursosApp/ios/imagenes/loading.gif" />');
+		
 		document.getElementById("div_nt").innerHTML="";
 						document.getElementById("div_ns").innerHTML="";
 						document.getElementById("div_na").innerHTML="";
@@ -310,7 +310,7 @@ function LeerNota(id)
 			{
 
 				type: "POST",
-				url: "http://166.78.193.53/RecursosApp/ios/php/Nota_pr.php",
+				url: "http://166.78.193.53/RecursosApp/android/php/Nota_pr.php",
 				data: "id="+id,
 				cache: false,
 				success: function(message)

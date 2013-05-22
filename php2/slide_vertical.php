@@ -1,7 +1,7 @@
 <?php
 /*slide  vertical*/
-include("../../includes/conexion.php");
-include('../../funciones.php'); 
+include("../../../includes/conexion.php");
+include('../../../funciones.php'); 
 
 $contador_seccion=0;
 $array_secciones = array(0, 0, 0, 0, 0, 0, 0, 0, 0);

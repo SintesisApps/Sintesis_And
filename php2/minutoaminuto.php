@@ -1,7 +1,7 @@
 <?php
 /*Minuto a Minuto*/
-include("../../includes/conexion.php");
-include('../../funciones.php');
+include("../../../includes/conexion.php");
+include('../../../funciones.php');
 
 function solo_hora($date_hora)
 {
@@ -17,7 +17,7 @@ function solo_hora($date_hora)
 }
 
 $html="";
-$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 7";
+$select_app="SELECT * FROM app_articulos WHERE  estatus='1' ORDER BY fecha DESC limit 4";
 $r_app=mysql_query($select_app,$conexion);
 
 while($f_app=mysql_fetch_assoc($r_app)):
@@ -60,7 +60,7 @@ while($f_app=mysql_fetch_assoc($r_app)):
 endwhile;
 
 
-$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' ORDER BY orden ASC";
+$pub="SELECT distinct(ruta), dispositivo FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' ORDER BY orden ASC";
 $puclicidad=mysql_query($pub,$conexion);
 $ruta_publi="";
 while($array_pub=mysql_fetch_array($puclicidad))
