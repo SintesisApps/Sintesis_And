@@ -184,7 +184,7 @@
 	
 	function CargarNoticiasHome()
 	{
-		//setTimeout(CargarNoticiasHome(),10000);
+		document.getElementById("cargando").style.display='';
 		
 		slideVertical2();
 		slidePrincipal();
@@ -210,14 +210,12 @@
 				});
 			}
 		
-		
+		setInterval(function(){document.getElementById("cargando").style.display='none'},7000);
 	} 
 	
 	function CargarNoticiasPlaza(plaza)
 	{
-		$('.ContenedorPrincipalSeccion').html('<img src="imagenes/loading.gif" />');
-		$('.DivVertical').html('<img src="imagenes/loading.gif" />');
-		$('#minuto_plaza').html('<img src="imagenes/loading.gif" />');
+		document.getElementById("cargando").style.display='';
 			$.ajax(
 			{
 
@@ -237,14 +235,13 @@
 						$("#name_SeccionSeccion").removeAttr("class");
 					$("#name_SeccionSeccion").addClass('back_nacion');
 					$("#name_SeccionSeccion").addClass('SeccionSeccion');
-					//color
-					//$("#name_SeccionSeccion").css({'background':'#5abfcf'});
+					
 						
-						setInterval($(".ContenedorPrincipalSeccion").html(datos[i].slide_principal),5000);
+						$(".ContenedorPrincipalSeccion").html(datos[i].slide_principal)
+						$(".DivVertical").html(datos[i].slide_vertical)
+						$("#minuto_plaza").html(datos[i].ultimas_noticias)
 						
-						setInterval($(".DivVertical").html(datos[i].slide_vertical),5000);
-						
-						setInterval($("#minuto_plaza").html(datos[i].ultimas_noticias),5000);
+						setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
 						
 					}
 					
@@ -256,9 +253,7 @@
 	} 
 	function cargar_seccion(seccion)
 	{
-		$('.ContenedorPrincipalSeccion').html('<img src="imagenes/loading.gif" />');
-		$('.DivVertical').html('<img src="imagenes/loading.gif" />');
-		$('#minuto_plaza').html('<img src="imagenes/loading.gif" />');
+		document.getElementById("cargando").style.display='';
 		 $.ajax(
 			{
 
@@ -284,9 +279,11 @@
 						
 						
 						
-						setInterval($(".ContenedorPrincipalSeccion").html(datos[i].slide_principal),5000);
-						setInterval($(".DivVertical").html(datos[i].slide_vertical),5000);
-						setInterval($("#minuto_plaza").html(datos[i].ultimas_noticias),5000);
+						$(".ContenedorPrincipalSeccion").html(datos[i].slide_principal)
+						$(".DivVertical").html(datos[i].slide_vertical)
+						$("#minuto_plaza").html(datos[i].ultimas_noticias)
+						
+						setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
 						
 					}
 					
@@ -376,16 +373,9 @@ function LeerNota(id)
 </script>
 
 </head>
-<div class="lb-overlay" id="cargando" style="display:''"> <img src="imagenes/loading.gif"> </div>
-<script>
-/*
-function loading()
-{//alert("leading");
-document.getElementById("cargando").style.display='none';
-}
-setInterval(function(){document.getElementById("cargando").style.display='none'},10000);*/
-</script>
+
 <body>
+<div class="lb-overlay_loading" id="cargando" style="display:''"> <img src="imagenes/loading.gif"> </div>
 <!-- Home -->
 <div id="home" class="content" >
 <div class="HeaderAlternativo">

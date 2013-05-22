@@ -114,6 +114,28 @@ body{
 }
 .lb-overlay img{
 	margin-top:20%;}
+	.lb-overlay_loading img{
+	margin-top:20%;}
+.lb-overlay_loading
+{
+	width: 0px;
+	height: 0px;
+	position: fixed;
+	overflow: hidden;
+	left: 0px;
+	top: 0px;
+	padding: 0px;
+	z-index: 99;
+	text-align: center;
+	background:#000;
+	opacity: 0.8;
+	width: auto;
+	height: auto;
+	bottom: 0px;
+	right: 0px;
+	padding: 80px 100px 120px 100px;
+}
+
 
 /*Slide Principal*/
 .ContenedorSlidePrincipal {
