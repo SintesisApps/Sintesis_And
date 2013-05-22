@@ -65,7 +65,7 @@ $puclicidad=mysql_query($pub,$conexion);
 $ruta_publi="";
 while($array_pub=mysql_fetch_array($puclicidad))
 {
-	$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  />  </div>";
+	$ruta_publi.="<div class=\'ContSuplemento\' id=\'img_sup\'><a href=\'http://www.google.com\' location=\'yes\' target=\'_blank\'><img src='".$url_dominio_."/images/imagenes-publicidad/".$array_pub['ruta']."'  /> </a> </div>";
 }
 
 $script='<script>
