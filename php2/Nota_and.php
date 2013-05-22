@@ -2,6 +2,7 @@
 <?php
 include("../../includes/conexion.php");
 include('../../funciones.php'); 
+//include('funciones.js'); 
 
 function extraer_imagen_nota($cadena){
 	
@@ -157,16 +158,16 @@ $select_ar="SELECT titulo,sumario,id_seccion,autor,fecha_creacion,nota FROM arti
 	$Nota=str_replace($imagen,'',$Nota);
 
 $ContenidoExtra.='
-			<div class="NotaExtraContenedor" style="">
-				<a href="#nota" onclick="LeerNota('.$id_nota_app.')">
-					<div class="NotaExtraTitulo borde_'.$SeccionSeudonimo.'" style="width:197px; height:59px;" >
+			<div class="NotaExtraContenedor">
+				<a href="#nota" onclick="LeerNota('.$id_nota_app.')" style="height:100px;">
+					<div class="NotaExtraTitulo borde_'.$SeccionSeudonimo.'" >
 						'.substr($Titulo,0,50).'
 					</div>
 				</a>	
 			
 				
-				<div class="NotaExtraImagen">
-					<img src="'.$imagen.'">
+				<div class="NotaExtraImagen" style="text-align:center">
+					<img src="'.$imagen.'" height="300" style="width:300px" >
 				</div>
 				
 				<div class="NotaExtraSumario">
@@ -210,13 +211,27 @@ $css='
 </script>
 ';
 
+$scrip="
+<script>
+function prueba()
+
+{
+	//alert('mensaje de prueba');	
+}
+
+$('#vertical_home').html('sdsdfshfkshfkshdfkhkhkh');
+prueba();
+
+</script>
+";
+
 $arr1[$i]=array(
 	'titulo' => $Titulo_p,
 					'sumario' => $css.$Sumario_p,
 					'autor' => $Autor_p,
 					'nota' => $Nota_p,
 					'imagen' => $imagen_p,
-					'fecha' => $Fecha_Creacion_p,
+					'fecha' => $scrip.$Fecha_Creacion_p,
 	'seccion' => $Seccion,
 	'seccion_pseudo' => $SeccionSeudonimo,
 	'nota_extra' => $ContenidoExtra,
