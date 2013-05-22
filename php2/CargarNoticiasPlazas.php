@@ -27,7 +27,7 @@ $seccion="nacion";
 				//$select_app="SELECT * FROM app_articulos WHERE plaza='nacionales' AND estatus='1' and posicion='Slide-Principal' ORDER BY id DESC  ";
 				$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='nacionales'
 											UNION
-										SELECT * FROM app_publicidad where posicion='principal-interior' and dispositivo='ios' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
+										SELECT * FROM app_publicidad where posicion='principal-interior' and dispositivo='android' and estatus='1' and plaza='nacionales' ORDER BY orden ASC";
 				
 					$r_app=mysql_query($select_app,$conexion);
 					while($f_app=mysql_fetch_assoc($r_app)):
@@ -113,7 +113,7 @@ $seccion="nacion";
 				
 				$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='nacionales'
 											UNION
-								SELECT * FROM app_publicidad where posicion='slide-vertical' and dispositivo='ios' and estatus='1'  and plaza='nacionales'
+								SELECT * FROM app_publicidad where posicion='slide-vertical' and dispositivo='android' and estatus='1'  and plaza='nacionales'
 								ORDER BY orden ASC";
 				
 				
@@ -226,7 +226,7 @@ $seccion="nacion";
 				
 				$ultimas_noticias="";
 				$cont=0;
-				$select_app2="SELECT * FROM app_articulos WHERE  estatus='1' and plaza='nacionales' ORDER BY fecha DESC";
+				$select_app2="SELECT * FROM app_articulos WHERE  estatus='1' and plaza='nacionales' and fecha <=CURRENT_DATE() ORDER BY fecha DESC";
 				$r_app2=mysql_query($select_app2,$conexion);
 				
 				while($f_app2=mysql_fetch_assoc($r_app2)):
@@ -242,7 +242,7 @@ $seccion="nacion";
 					
 					if($num_select ==1)//si el artuculo  correspnce a al seccion seleccionada
 					{//mostramos las ultimas 4
-						if($cont <= 3)
+						if($cont <= 6)
 						{
 							while($f_ar2=mysql_fetch_assoc($r_ar2)):
 								$Titulo_nota2=$f_ar2['titulo'];
@@ -275,9 +275,9 @@ $seccion="nacion";
 				/*ultimas noticias*/
 				
 				
-				$video='<a href="#video" onClick="galeria_video(\'nacionales\')"><div class="Video" id="video_Seccion"> <img src="imagenes/video3.jpg"> </div></a>';
 				
-			$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' and plaza='nacionales' ORDER BY orden ASC";
+				
+			$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='android' and plaza='nacionales' ORDER BY orden ASC";
 			$puclicidad=mysql_query($pub,$conexion);
 			$ruta_publi="";
 			while($array_pub=mysql_fetch_array($puclicidad))
@@ -296,7 +296,6 @@ $seccion="nacion";
 					'slide_principal' => $slide_principal,
 					'slide_vertical' => $slide_vertical,
 					'ultimas_noticias' => $script.$ultimas_noticias,
-					'video' => $video,
 					'pseudo' => $seccion,
 					);
 					
@@ -315,7 +314,7 @@ $seccion_slidePrincipal='<div style="float:left;margin-right:-30000px;">
 
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Principal-Interior' and estatus='1' and plaza='".$plaza."'
 							UNION
-						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and dispositivo='ios' and plaza='".$plaza."' ORDER BY orden ASC";
+						SELECT * FROM app_publicidad where posicion='principal-interior' and estatus='1' and dispositivo='android' and plaza='".$plaza."' ORDER BY orden ASC";
 
 
 
@@ -405,7 +404,7 @@ $slide_vertical='<div  class="ContenedorSlideVertical" >';
 //$select_app="SELECT * FROM app_articulos WHERE plaza='".$plaza."' AND estatus='1' and posicion='Slide-Vertical' ORDER BY id DESC	 ";
 $select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1' and plaza='".$plaza."'
 							UNION
-				SELECT * FROM app_publicidad where posicion='slide-vertical' and estatus='1' and dispositivo='ios'  and plaza='".$plaza."'
+				SELECT * FROM app_publicidad where posicion='slide-vertical' and estatus='1' and dispositivo='android'  and plaza='".$plaza."'
 				ORDER BY orden ASC";
 
 
@@ -508,7 +507,7 @@ function solo_hora($date_hora)
 }
 
 $ultimas_noticias="";
-$select_app2="SELECT * FROM app_articulos WHERE  estatus='1' and plaza='".$plaza."' ORDER BY fecha DESC limit 4";
+$select_app2="SELECT * FROM app_articulos WHERE  estatus='1' and plaza='".$plaza."' ORDER BY fecha DESC limit 7";
 $r_app2=mysql_query($select_app2,$conexion);
 
 while($f_app2=mysql_fetch_assoc($r_app2)):
@@ -525,7 +524,7 @@ while($f_app2=mysql_fetch_assoc($r_app2)):
 		
 		//$Titulo_nota2=utf8_encode($Titulo_nota2);
 		
-		$Titulo_nota2=substr($Titulo_nota2,0,36)."...";
+		$Titulo_nota2=substr($Titulo_nota2,0,55)."...";
 		$fecha_publicacion=$f_ar2['fecha_publicacion'];
 		$fecha_publicacion=substr($fecha_publicacion, 11, 5);
 	endwhile;
@@ -564,12 +563,9 @@ $url_video=$array_plaza['seudonimo'];
 }
 
 
-	
-
-$video='<a href="#video" onClick="galeria_video(\''.$url_video.'\')"><div class="Video" id="video_Seccion"> <img src="imagenes/video3.jpg"> </div></a>';
 
 //publicidad
-$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='ios' and  plaza='".$plaza."'  ORDER BY orden ASC";
+$pub="SELECT * FROM app_publicidad WHERE posicion='suplemento' and estatus='1' and dispositivo='android' and  plaza='".$plaza."'  ORDER BY orden ASC";
 $puclicidad=mysql_query($pub,$conexion);
 $ruta_publi="";
 while($array_pub=mysql_fetch_array($puclicidad))
@@ -587,7 +583,6 @@ $("#sup_img_prin_sec").html("'.$ruta_publi.'");</script>';
 	'slide_principal' => $seccion_slidePrincipal,
 	'slide_vertical' => $slide_vertical,
 	'ultimas_noticias' => $script.$ultimas_noticias,
-	'video' => $video ,
 	'pseudo' => $plaza_app ,
 	);
 	

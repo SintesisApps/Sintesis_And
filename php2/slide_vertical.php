@@ -11,7 +11,7 @@ $html="";
 	$cont_pub=0;
 	$select_app="SELECT * FROM app_articulos WHERE posicion='Slide-Vertical' and estatus='1'
 							UNION
-				SELECT * FROM app_publicidad where posicion='slide-vertical' and  dispositivo='ios' and estatus='1' 
+				SELECT * FROM app_publicidad where posicion='slide-vertical' and  dispositivo='android' and estatus='1' 
 				ORDER BY orden ASC";
 						
 						
