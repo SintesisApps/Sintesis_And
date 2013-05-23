@@ -301,11 +301,14 @@ while($array_pub=mysql_fetch_array($puclicidad))
 $script='<script>
 $("#sup_img_prin_sec").html("'.$ruta_publi.'");</script>';
 
-
-
+//"pseudo:"+'.$seccion.'+"nombre seccion:"+'.$name_seccion.'
+$mensaje='
+<script>alert("nombre seccion:'.$name_seccion.'");</script>
+';
 //recarga
 
-
+$seccion='percapita';
+$name_seccion="PER CÁPITA";
 $arr_seccion[$i]=array(
 	'titulo_seccion' => $name_seccion,
 	'slide_principal' => $slide_principal,
