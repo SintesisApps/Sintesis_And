@@ -241,6 +241,7 @@ while($contador1!=$numero_veces )
 {
 	$primera= primera_imagen($cadena); 
 	$tamaño_imagen=strlen($primera);
+
 	
 	 $imagen_p.='<div style="display:inline-block; overflow:hidden">
           <div class="ImagenesNotaImagen">
