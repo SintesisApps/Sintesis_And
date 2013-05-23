@@ -290,7 +290,7 @@ $seccion="nacion";
 				
 				//recarga
 				
-				
+				$name_seccion=utf8_encode($name_seccion);
 				$arr_seccion[$i]=array(
 					'titulo_seccion' => $name_seccion,
 					'slide_principal' => $slide_principal,

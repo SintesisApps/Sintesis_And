@@ -306,9 +306,10 @@ $mensaje='
 <script>alert("nombre seccion:'.$name_seccion.'");</script>
 ';
 //recarga
-
+/*
 $seccion='percapita';
-$name_seccion="PER CÁPITA";
+$name_seccion="PER CÁPITA";*/
+$name_seccion=utf8_encode($name_seccion);
 $arr_seccion[$i]=array(
 	'titulo_seccion' => $name_seccion,
 	'slide_principal' => $slide_principal,
