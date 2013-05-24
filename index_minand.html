@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Síntesis</title>
+<meta content="width=device-width, initial-scale=1.0, minimum-scale=.5, maximum-scale=1.0, user-scalable=yes" name="viewport" />
+<!--
+<link href="general.css" rel="stylesheet">
+<link href="css/transiciones.css" rel="stylesheet">
+<link href="css/alerta.css" rel="stylesheet" type="text/css" />
+-->
+<link href="http://166.78.193.53/RecursosApp/minandroid/general.css" rel="stylesheet">
+<link href="http://166.78.193.53/RecursosApp/minandroid/css/transiciones.css" rel="stylesheet">
+<link href="http://166.78.193.53/RecursosApp/minandroid/css/alerta.css" rel="stylesheet" type="text/css" />
+
+<script src="phonegap.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+<!--Slide-->
+<link href="slide/royalslider.css" rel="stylesheet">
+<script type="text/javascript" async src="slide/ga.js"></script> 
+<script src="slide/jquery.royalslider.min.js?v=9.3.5"></script>
+
+<!--Slide-->
+	<link href="js/galeria/photoswipe.css" type="text/css" rel="stylesheet" />
+	<script type="text/javascript" src="js/galeria/lib/klass.min.js"></script>
+	<script type="text/javascript" src="js/galeria/code.photoswipe-3.0.4.min.js"></script>
+	<!--<script type="text/javascript">
+
+		(function(window, PhotoSwipe){
+		
+			document.addEventListener('DOMContentLoaded', function(){
+			
+				var
+					options = {},
+					instance = PhotoSwipe.attach( window.document.querySelectorAll('#Gallery a'), options );
+					
+					
+					// onBeforeShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeShow, function(e){
+						console.log('onBeforeShow');
+					});
+					
+					// onShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onShow, function(e){
+						console.log('onShow');
+					});
+					
+					// onBeforeHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeHide, function(e){
+						console.log('onBeforeHide');
+					});
+					
+					// onHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onHide, function(e){
+						console.log('onHide');
+					});
+					
+					// onDisplayImage
+					instance.addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function(e){
+						console.log('onDisplayImage{');
+						console.log('onDisplayImage - e.action = ' + e.action);
+						console.log('onDisplayImage - e.index = ' + e.index);
+						console.log(instance.getCurrentImage());
+						console.log('onDisplayImage}');
+					});
+					
+					// onResetPosition
+					instance.addEventHandler(PhotoSwipe.EventTypes.onResetPosition, function(e){
+						console.log('onResetPosition');
+					});
+					
+					// onSlideshowStart
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStart, function(e){
+						console.log('onSlideshowStart');
+					});
+					
+					// onSlideshowStop
+					instance.addEventHandler(PhotoSwipe.EventTypes.onSlideshowStop, function(e){
+						console.log('onSlideshowStop');
+					});
+					
+					// onTouch
+					instance.addEventHandler(PhotoSwipe.EventTypes.onTouch, function(e){
+						console.log('onTouch{');
+						console.log('onTouch - e.action = ' + e.action);
+						console.log('onTouch - e.point = ');
+						console.log(e.point);
+						console.log('onTouch}');
+					});
+					
+					// onBeforeCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarShow, function(e){
+						console.log('onBeforeCaptionAndToolbarShow');
+					});
+					
+					// onCaptionAndToolbarShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarShow, function(e){
+						console.log('onCaptionAndToolbarShow');
+					});
+					
+					// onBeforeCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeCaptionAndToolbarHide, function(e){
+						console.log('onBeforeCaptionAndToolbarHide');
+					});
+					
+					// onCaptionAndToolbarHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onCaptionAndToolbarHide, function(e){
+						console.log('onCaptionAndToolbarHide');
+					});
+					
+					// onToolbarTap
+					instance.addEventHandler(PhotoSwipe.EventTypes.onToolbarTap, function(e){
+						console.log('onToolbarTap');
+						console.log(e);
+					});
+					
+					// onBeforeZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateShow, function(e){
+						console.log('onBeforeZoomPanRotateShow');
+					});
+					
+					// onZoomPanRotateShow
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateShow, function(e){
+						console.log('onZoomPanRotateShow');
+					});
+					
+					// onBeforeZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onBeforeZoomPanRotateHide, function(e){
+						console.log('onBeforeZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateHide
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateHide, function(e){
+						console.log('onZoomPanRotateHide');
+					});
+					
+					// onZoomPanRotateTransform
+					instance.addEventHandler(PhotoSwipe.EventTypes.onZoomPanRotateTransform, function(e){
+						console.log('onZoomPanRotateTransform');
+						console.log(e);
+					});
+					
+			}, false);
+			
+			
+		}(window, window.Code.PhotoSwipe));
+		
+	</script>-->
+
+
+
+    
+<!-- geolocalizacion -->
+<script type="text/javascript"
+      src="http://maps.googleapis.com/maps/api/js?sensor=true">
+    </script>
+    
+    <!-- carga de noticias -->
+    <script>
+			$(document).ready(function(e) {
+				document.addEventListener("deviceready", function(){
+				 //mantenemos el loding por 7 segundo
+				//alert("conexion:"+navigator.connection.type);
+					slidePrincipal();
+					slideVertical();
+					CargarNoticiasHomeGal();
+				
+               
+				setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
+				
+					});
+				
+            });
+			
+			function CargarNoticiasHomeGal()
+			{
+				$.ajax({
+						type: "POST",
+						url: "http://166.78.193.53/RecursosApp/minandroid/php/CargarGaleriaImagenes2.php",
+						data: "",
+						cache: false,
+						success: function(message)
+						{
+						$('.GaleriaImagenesContenedor').html(message);
+						}
+					});
+		
+			} 
+
+			
+			function slidePrincipal()
+			{
+				
+				//$('#cont_slideprincipal').html('<img src="imagenes/loading.gif" />');
+				 $.ajax({
+					type: "POST",
+						url: "http://166.78.193.53/RecursosApp/minandroid/php/slideprincipal_minand.php",
+						data: "",
+						cache: false,
+						success: function(message)
+						{	
+					<!--	setInterval($('#cont_slideprincipal').html(message),5000);-->	
+						$('#cont_slideprincipal').html(message);
+					}
+				});
+				
+				
+			}
+			function slideMiniatura()
+			{
+				/*SLIDE MINIATURAS*/
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/slide_miniatura.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('#cont_slidemini').html(message);
+				}
+				});
+			}
+			
+			function slideVertical()
+			{
+				
+				//$('#content_slideVertical').html('<img src="imagenes/loading.gif" />');
+				
+				
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/slide_vertical_minand.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+					<!--setInterval($('#content_slideVertical').html(message),5000);-->
+				$('#content_slideVertical').html(message);
+				}
+				});
+			}
+			
+			/*function galeriaImagenes ()
+			{
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/galeria_imagenes.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('#content_gal').html(message);
+				}
+				});
+			}*/
+			
+			/*function galeria_video(plaza)
+			{
+
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/galeria_video.php",
+				//data: "",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{	
+				$('.contvideogaleria').html(message);
+				}
+				});
+			}*/
+
+			
+/*			function galeria_video()
+			{
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php_min/galeria_video.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('.contvideogaleria').html(message);
+				}
+				});
+			}
+*/			
+			/*function minuto_minuto()
+			{
+				$.ajax({
+					type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/minutoaminuto.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('.Minuto_A_Minuto').html(message);
+				}
+				});
+			}*/
+			
+		
+	</script>
+    <!-- fin carga de noticias-->
+
+<script>
+  
+  	function pagSinte(){
+		var ref = window.open('http://www.sintesis.mx', '_blank', 'location=yes');
+		}
+	function pagDesarrollo(){
+		var ref = window.open('http://www.sintesis.mx/', '_blank', 'location=yes');
+		}
+	function PagTwitter(){
+		var ref = window.open('https://twitter.com/Sintesisweb', '_blank', 'location=yes');
+		}
+	function PagFace(){
+		var ref = window.open('https://www.facebook.com/SintesisPuebla?fref=ts', '_blank', 'location=yes');
+		}
+		
+	function CargarNoticiasHome()
+	{
+		document.getElementById("cargando").style.display='';
+		
+		slideVertical2();
+		slidePrincipal();
+		/*slideMiniatura();*/
+		CargarNoticiasHomeGal();
+		/*galeriaImagenes();*/
+		/*galeria_video('nacionales');	*/	
+		/*minuto_minuto();*/
+		function slideVertical2()
+			{//ContenedorDivMedio
+				$('#vertical_home').html('<img src="imagenes/loading.gif" />');
+				$.ajax({
+				type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/slide_vertical_minand.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{
+					$('#vertical_home').html(
+					' <div  class="ContenedorSlideVertical" id="content_slideVertical" >'+message+'</div>'
+					
+					)
+				}
+				});
+			}
+		setInterval(function(){document.getElementById("cargando").style.display='none'},10000);
+		
+	} 
+	
+	function CargarNoticiasPlaza(plaza)
+	{			
+			document.getElementById("cargando").style.display='';
+
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/CargarNoticiasPlazas_minand.php",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{
+					datos = JSON.parse(message);
+					for(i=0;i<datos.length;i++)
+					{
+						document.getElementById("name_SeccionSeccion").innerHTML="";
+						$(".SeccionSeccion").html(
+							datos[i].titulo_seccion
+						);
+						$("#name_SeccionSeccion").removeAttr("class");
+						$("#name_SeccionSeccion").addClass('back_nacion');
+						$("#name_SeccionSeccion").addClass('SeccionSeccion');
+
+						$("#cont_slidepSeccion").html(datos[i].slide_principal);
+						$(".DivVertical").html(datos[i].slide_vertical);	
+						
+						setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
+					}
+					
+				
+				
+				}
+			});
+
+	} 
+	function cargar_seccion(seccion)
+	{
+			document.getElementById("cargando").style.display='';
+
+		 $.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/cargar_seccion_minand.php",
+				data: "seccion="+seccion,
+				cache: false,
+				success: function(message)
+				{
+					datos = JSON.parse(message);
+					for(i=0;i<datos.length;i++)
+					{
+						
+						document.getElementById("name_SeccionSeccion").innerHTML="";
+						$(".SeccionSeccion").html(
+							datos[i].titulo_seccion
+						);
+						
+						
+						$("#name_SeccionSeccion").removeAttr("class");
+					$("#name_SeccionSeccion").addClass('back_'+datos[i].pseudo);
+					$("#name_SeccionSeccion").addClass('SeccionSeccion');
+						
+						
+						
+					$(".ContenedorPrincipalSeccion").html(datos[i].slide_principal);
+					$(".DivVertical").html(datos[i].slide_vertical);	
+					setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
+						
+					}
+					
+					
+				}
+			});
+
+		 
+	}
+
+
+		
+	/*	function CargarNoticiasHome()
+	{
+		slidePrincipal();
+		slideMiniatura();
+		document.getElementById("vertical_seccion").innerHTML="";
+		slideVertical();
+		galeriaImagenes();
+		galeria_video();	
+		minuto_minuto();
+	} 
+	
+	function CargarNoticiasPlaza(plaza)
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php_min/CargarNoticiasPlazas.php",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{
+					datos = JSON.parse(message);
+					for(i=0;i<datos.length;i++)
+					{
+						document.getElementById("name_SeccionSeccion").innerHTML="";
+						$(".SeccionSeccion").html(
+							datos[i].titulo_seccion
+						);
+						$(".ContenedorPrincipalSeccion").html(
+							datos[i].slide_principal
+						);
+						
+						$(".DivVertical").html(
+						datos[i].slide_vertical
+						);
+						
+						$("#minuto_plaza").html(
+						datos[i].ultimas_noticias
+						);
+					}
+					
+				
+				
+				}
+			});
+
+	} */
+
+	
+	/*function CargarNoticiasHome()
+	{
+		setTimeout(CargarNoticiasHome,60000);
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasHome.php",
+				data: "",
+				cache: false,
+				success: function(message)
+				{	
+				$('#ContenedorSlides').html(message);
+				
+				}
+			});
+
+	} 
+	
+	function CargarNoticiasPlaza(plaza)
+	{
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/APPSintesis/php/CargarNoticiasPlazas.php",
+				data: "plaza="+plaza,
+				cache: false,
+				success: function(message)
+				{
+				$("#plaza").html(message);
+				
+				}
+			});
+
+	} 
+
+
+	
+//CargarNoticiasHome();*/
+
+/*$(window).load(function() {
+      $('#cargando').hide();
+});*/
+
+function LeerNota(id)
+	{ 
+		CargarNoticiasHome();
+		document.getElementById("cargando").style.display='';
+		document.getElementById("div_nt").innerHTML="";
+						document.getElementById("div_ns").innerHTML="";
+						document.getElementById("div_na").innerHTML="";
+						document.getElementById("div_nfc").innerHTML="";
+						document.getElementById("div_nc").innerHTML="";
+						document.getElementById("div_nep").innerHTML="";
+			$.ajax(
+			{
+
+				type: "POST",
+				url: "http://166.78.193.53/RecursosApp/minandroid/php/Nota_minand.php",
+				data: "id="+id,
+				cache: false,
+				success: function(message)
+				{
+					datos = JSON.parse(message);
+					for(i=0;i<datos.length;i++)
+					{
+						//limpiamos contenidos
+						
+						//modificamos las imagenes
+					
+					//$('#Gallery').html(
+					$('#img_cont').html(
+					datos[i].imagen 
+					);
+					/*$('.ImagenesNotaImagen').html(
+					
+					'<img src="http://166.78.193.53/images/'+datos[i].imagen+'">'+
+					'<div class="ZoomImagenNota">'+
+						'<a href="http://166.78.193.53/images/'+datos[i].imagen+'" >'+
+						'</a>'+
+					'</div>'+
+					'<div class="MasImagenNota">'+
+					'</div>'
+					);*/
+					
+					document.getElementById("name_section").innerHTML="";
+					$('.NotaSeccion').html(
+					datos[i].seccion
+					);
+					
+					$("#name_section").removeAttr("class");
+					$("#name_section").addClass('back_'+datos[i].seccion_pseudo);
+					$("#name_section").addClass('NotaSeccion');
+					$("#name_section").css({'color':'#fff'});
+					
+					$('.NotaTitulo').html(
+					datos[i].titulo
+					);
+					
+					$('.NotaSumario').html(
+					datos[i].sumario
+					);
+					$('.NotaAutor').html(
+					datos[i].autor
+					);
+					
+					$('.NotaFechaCreacion').html(
+					datos[i].fecha
+					);
+					
+					$('.NotaCompleta').html(
+					datos[i].nota
+					);
+					
+					$('.ExtrasPlaza').html(datos[i].nota_extra);
+					/*setInterval($('.ExtrasPlaza').html(datos[i].nota_extra),5000);*/
+					setInterval(function(){document.getElementById("cargando").style.display='none'},12000);
+					
+					}
+				
+				}
+			});
+	}
+
+
+</script>
+
+</head>
+<body >
+<div class="lb-overlay_loading" id="cargando" style="display:''"> <img src="imagenes/loading.gif"> </div>
+<!--<div class="lb-overlay" id="cargando" style="display:'none'"> <img src="imagenes/loading.gif"> </div>-->
+
+<!-- Home -->
+<div id="home" class="content"  >
+    <div class="HeaderAlternativo">
+      <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="$('#panelSecciones').css('left','0');"> <img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a> 
+      </div>
+      <div style=" display:inline-block; width:65%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+      <!--<div style=" display:inline-block; padding-top:0px; width:10%; text-align:right;"> <a href="#Info" data-rel="popup"> <img src="imagenes/iconos/azules/informacion@2x.png" width="50" > </a> </div>-->
+    </div>
+    <div id="ContenedorSlides2"> 
+    <div id="ContenedorSlides"> 
+    
+	<!--Slide Principal-->
+     <div  class="ContenedorSlidePrincipal_php" id="cont_slideprincipal" >
+     <!--  <div  class="SlidePrincipal ContenedorSlidePrincipal" id="cont_slideprincipal" > -->
+     </div>       
+	<!--Slide Principal--> 
+  
+    
+  
+	<!--Slide Vertical-->
+  <div class="DivVertical" id="vertical_home">
+    <div  class="ContenedorSlideVertical" id="content_slideVertical" >
+     <!--
+        se carga de php
+        <div > 
+            <div class="PublicidadSlideVertical">
+                <img src="imagenes/publicidad/3.jpg">
+            </div>
+        </div>-->
+        
+    </div>
+  </div>
+	<!--Slide Vertical--> 
+    
+</div>
+
+<!-- Fin Home --> 
+
+<!--Nota-->
+<div id="nota" class="TransicionTop">
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block;  padding-top:0px; width:10%; padding-left:10px;"> 
+    <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a>
+    </div>
+    <div style=" display:inline-block; width:65%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  <div class="back_nacion NotaSeccion" id="name_section">
+
+  </div>
+  <div id="contenedor_Nota" id="ref_contenedor_Nota">
+  	<div class="NotaContenedor" >
+            
+   		<div id="img_cont">
+        
+        
+        </div>
+  
+  
+        <div class="NotaTitulo" id="div_nt"></div>
+        <div class="NotaSumario" id="div_ns"></div>
+        
+         <div class="NotaAutor" id="div_na"></div>
+         <div class="NotaFechaCreacion" id="div_nfc"></div>
+        
+        <div class="NotaCompleta" id="div_nc"> </div>
+        
+        <div class="ExtrasPlaza" id="div_nep">
+          <!--  PHP-->
+         </div>
+            
+      </div>
+  </div>
+</div>
+<!--Fin Nota-->
+
+
+<!--Secciones Plazas-->
+<div id="secciones" class="TransicionFadeOut">
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="$('#panelSecciones').css('left','0');"> 
+    	<img src="imagenes/iconos/azules/seccion@2x.png" width="50" > </a>
+     </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  
+  <div> 
+      <div class="back_nacion SeccionSeccion" id="name_SeccionSeccion" style="color:#FFF;">
+       
+      </div>
+   	<!--Slide Principal Plaza-->
+    <div id="cont_slidepSeccion">
+    
+    
+    </div>
+    <!--  <div class="ContenedorPrincipalSeccion">
+      </div>-->
+    <!--Slide Principal Plaza--> 
+    
+    <!--Slide Vertical Seccion-->
+      <div class="DivVertical" id="vertical_seccion">
+      <!--<div  class="ContenedorSlideVertical" >
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/6.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/3.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+          
+          <div > 
+            <div class="PublicidadSlideVertical">
+                <img src="imagenes/publicidad/2.jpg">
+            </div>
+        </div>
+        
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+           
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/2.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+        <div > <a href="#nota" onclick="LeerNota('.$id_nota_app.')">
+          <div class="SlideVerticalArticulo">
+            
+            <div class="SlideVerticalImagen"><img src="imagenes/imagenes-articulos/7.jpg" > </div>
+            <div class="SlideVerticalContenido">
+              <div class="SlideVerticalTitulo">Recibirá Puebla el Grand Slam...</div>
+              <div class="SlideVerticalAutor">Alma Liliana Velazquez /Síntesis</div>
+              <div class="SlideVerticalFecha">2013-03-28 17:40:48</div>
+            </div>
+          </div>
+          </a> </div>
+      </div>-->
+      </div>
+    <!--Slide Vertical Seccion--> 
+    
+    <!--Contenedor Minuto a Minuto Video y Suplementos-->
+<!--    <div class="ContenedorDivMedio">
+      <div class="ContenedorMinutovideo">
+        <div class="Minuto_A_Minuto">
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+            <hr>
+          </div>
+          <div style="width:90%;">
+            <div style="display:inline-block; color: rgb(0,85,143);"> 10:49 PM </div>
+            <div style="display:inline-block; color: rgb(151,151,151);"> / Mantendrá Seproci vigilancia vigilancia... </div>
+          </div>
+        </div>
+        <div class="Video"> <img src="imagenes/video.png"> </div>
+      </div>
+      <div class="Suplementos"> 
+        <div class="DivSuplementos">
+            <div style="float:left;margin-right:-30000px;">
+            	<div class="ContSuplemento">
+            		<img src="imagenes/publicidad/10.jpg">
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+-->    <!--Contenedor Minuti a Minuto Video y Suplementos--> 
+    
+  </div>
+</div>
+<!--Fin Secciones Plazas--> 
+
+<!--Galeria de Fotos-->
+<div id="galeria" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  
+   	<div id="MainContent">
+        <ul id="Gallery_gal" class="gallery GaleriaImagenesContenedor">
+        </ul>
+	</div>	
+</div>
+
+
+
+<!--Fin Galeria de Fotos-->
+
+<!--Ubicacion-->
+<div id="ubicacion" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div class="logo1"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  <div style="height:50%; width:100%; padding-top:0px; padding-bottom:0px;">
+    <div class="contNav" style="width:100%;  height:75%; background:url(imagenes/mapa.jpg) no-repeat; background-size:100% 100%; background-position:center center; margin-top:0px;">
+    </div>
+  </div>
+</div>
+<!-- Fin Ubicacion-->
+
+
+
+<!--gia Nav-->
+<div id="guia" class="TransicionFadeOut" style="background-image:url(imagenes/black_linen_v2.png)"  >
+  <div class="HeaderAlternativo">
+    <div style=" display:inline-block; padding-top:0px; width:10%; padding-left:10px;"> <a href="javascript:;" onClick="history.back(-1);"> <img src="imagenes/iconos/azules/regresar@2x.png" width="50" > </a> </div>
+    <div style=" display:inline-block; width:75%; vertical-align: top; padding-top:10px; text-align:center;"> <img src="imagenes/logo.png" height="25"> </div>
+  </div>
+  <div style="height:50%; width:100%;">
+    <div class="contNav" style="width:100%; height:50%; background:url(imagenes/guia.png) no-repeat; background-size:100%, 50%; background-position:center center; margin-top:50px;">
+    </div>
+  </div>
+</div>
+<!-- Fin guia nav--> 
+
+<!--Dialogo Plazas--> 
+<!--<a href="#home" class="overlay" id="DialogoPlazas"></a>
+<div class="popup"> <a href="#plaza" onClick="CargarNoticiasPlaza('puebla')">
+  <div class="DialogoPlaza"> Puebla </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('yucatan')">
+  <div class="DialogoPlaza"> Yucatán </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('tlaxcala')">
+  <div class="DialogoPlaza"> Tlaxcala </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('hidalgo')">
+  <div class="DialogoPlaza"> Hidalgo </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('oaxaca')">
+  <div class="DialogoPlaza"> Oaxaca </div>
+  </a> <a href="#plaza" onClick="CargarNoticiasPlaza('chiapas')">
+  <div class="DialogoPlaza"> Chiapas </div>
+  </a> <a class="close" href="#home"></a> 
+</div>
+--><!--Dialogo Plazas--> 
+
+<!--Dialogo de Info--> 
+
+<!--<a href="#home" class="overlayInfo" id="Info"></a>
+<div class="popupInfo" >
+  <div class="HeadDialogoInfo"> Mensiones Legales </div>
+  <div class="ContenidoDialogoInfo"> La aplicación Síntesis esta creada y editada por Asociación periodística Síntesis. 23 Sur y 25 Poniente #2504 Col. Volcanes. C.P: 72410.
+    <p>&nbsp;</p>
+    Representante Legal. Director de la Publicación.<br>
+    <strong>Oscar Tendero.</strong>
+    <p>&nbsp;</p>
+    Director de la Redacción.<br>
+    <strong>Erick Becerra.</strong>
+    <p>&nbsp;</p>
+    Para cualquier problema sobre la aplicación contactanos <a class="" href="mailto:admin-web@sintesisdigital.com.mx" style="width:150px; margin:auto; margin-top:10px;">
+    <div class="BotonDialogoInfo"> Contacto </div>
+    </a>
+    <p>&nbsp;</p>
+    Ésta publicación ha sido realizada por Desarrollo Síntesis.<br>
+    <a href="javascript:;" onClick="pagDesarrollo();" data-theme="z" >
+    <div style="color:#FFF;"> www.desarrollosintesis.com </div>
+    </a> <a class="close" href="#home"></a> </div>
+</div>-->
+
+
+
+
+<!--Fin Dialogo de Info--> 
+
+<!--Panel de Secciones-->
+
+<div id="panelSecciones"  class="panelSeccion"> 
+  <a href="#home" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasHome()">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/home@2x.png);"> Home </div>
+  
+  <div class="paneSeccionEdicion1"> Secciones </div>
+  </a>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('nacionales');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/nacion@2x.png);"> Nación </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('orbe');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/orbe@2x.png);"> Orbe </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('percapita');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/percapita@2x.png);"> Per Cápita </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('cronos');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/cronos@2x.png);"> Cronos </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('circus');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/circus@2x.png);"> Circus </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('vox');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/vox@2x.png);"> Vox </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), cargar_seccion('tecno');">
+  <div class="panelSeccionTitulo" style="background-image:url(imagenes/iconos/azules/tecno@2x.png);"> Tecno </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <div class="paneSeccionEdicion1"> Estados </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('puebla');">
+  <div class="panelSeccionTitulo"> Puebla </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('hidalgo');">
+  <div class="panelSeccionTitulo"> Hidalgo </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('tlaxcala');">
+  <div class="panelSeccionTitulo"> Tlaxcala </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('oaxaca');">
+  <div class="panelSeccionTitulo"> Oaxaca </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('chiapas');">
+  <div class="panelSeccionTitulo"> Chiapas </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a href="#secciones" onClick="$('#panelSecciones').css('left','-250%'), CargarNoticiasPlaza('yucatan');">
+  <div class="panelSeccionTitulo"> Yucatán </div>
+  </a>
+  <div class="panelSeccionSpacer"> </div>
+  <a class="closeSeccion" href="javascript:;" onClick="$('#panelSecciones').css('left','-250%');"></a> 
+</div>
+<!--Fin Panel de Secciones--> 
+
+
+<!--Footer mio-->
+<div class="HeaderAlternativoFooter" style="position:fixed; bottom:0; vertical-align:top;   ">  
+<!--  <div style=" display:inline-block; text-align:center; width:100%; vertical-align:bottom;position:absolute; padding-bottom:0px;margin-top:3px; vertical-align:center;z-index:-1; "> <a href="#guia" > <img src="imagenes/iconos/azules/guia@2x.png" width="40" > </a> </div>
+-->  
+  	<div style="display:inline-block; padding-left:0px; padding-bottom:0px;vertical-align:center; margin-top:3px; z-index:-1;  "> <a href="#ubicacion" >  <img src="imagenes/iconos/azules/ubicacion@2x.png" width="40" > </a> </div>
+  
+  	<div style=" display:inline-block;padding-left:0px; padding-bottom:0px;vertical-align:center;margin-top:3px;" > <a href="#galeria" onClick="CargarNoticiasHome()"> <img src="imagenes/iconos/azules/galeria@2x.png" width="40"  > </a> </div>
+  
+  	<div style=" display:inline-block;padding-left:0px; padding-bottom:0px;vertical-align:center;margin-top:3px;" > <a href="mailto:admin-web@sintesisdigital.com.mx" onClick="$('#panelSecciones').css('center','-250%');"> <img src="imagenes/iconos/azules/correo@2x.png" width="40"  > </a> </div>
+  
+  	<div style="float:right;display:inline-block;padding-right:0px;padding-bottom:0px;vertical-align:center;margin-top:3px; " > <a href="javascript:;" onClick="PagFace();">  <img src="imagenes/iconos/azules/facebook@2x.png" width="40"  > </a> </div>
+
+
+    <div style="float:right;display:inline-block;padding-right:0px;padding-bottom:0px;vertical-align:center;margin-top:3px; "> <a href="javascript:;" onClick="pagDesarrollo();"><img src="imagenes/iconos/azules/web@2x.png"  width="40" > </a> </div>
+
+     <div style=" float:right; display:inline-block; padding-right:0px;padding-bottom:0px;vertical-align:center; margin-top:3px;"> <a href="javascript:;" onClick="PagTwitter();"> <img src="imagenes/iconos/azules/twitter@2x.png" width="40"  > </a> </div>
+  
+</div>
+<!--Fin Footer-->
+
+
+<script>
+      jQuery(document).ready(function($) {
+
+  $(".SlidePrincipal").royalSlider({
+    autoHeight: false,
+    arrowsNav: false,
+    fadeinLoadedSlide: false,
+    controlNavigationSpacing: 0,
+    controlNavigation: "tabs",
+    imageScaleMode: "none",
+    imageAlignCenter:false,
+    loop: false,
+    loopRewind: true,
+    numImagesToPreload: 6,
+    keyboardNavEnabled: false,
+    usePreloader: true
+  });
+ 
+  
+  
+  });
+  
+  
+  
+
+    </script> 
+</div>
+</body>
+</html>
