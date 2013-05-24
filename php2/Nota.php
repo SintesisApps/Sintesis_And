@@ -240,6 +240,7 @@ $limit_num_veces=$numero_veces-1;
 while($contador1!=$numero_veces )
 {
 	$primera= primera_imagen($cadena); 
+	$primera=utf8_encode($primera);
 	$tamaño_imagen=strlen($primera);
 
 	
