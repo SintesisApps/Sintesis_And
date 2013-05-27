@@ -26,22 +26,24 @@
 
     <preference name="phonegap-version" value="2.5.0" />
     <preference name="orientation"      value="landscape" />
-    <preference name="target-device"    value="universal" />
+    <preference name="target-device"    value="tablet" />
     <preference name="fullscreen"       value="true" />
 	<preference name="webviewbounce" value="false" />
 	<preference name="stay-in-webview" value="true" />
-	 <preference name="ios-statusbarstyle" value="black-translucen" />
-
-    <icon src="imagenes/iconos/iconos/1024.png" />
+	
+	<preference name="android-minSdkVersion" value="10" />
+	<preference name="android-maxSdkVersion" value="15" />
+	<preference name="android-installLocation" value="auto" />
+	
     <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="mdpi" />
     <icon src="imagenes/iconos/iconos/1024.png"   gap:platform="android"    gap:density="hdpi" />
     <icon src="imagenes/iconos/iconos/1024.png"  gap:platform="android"    gap:density="xhdpi" />
    
-    <gap:splash src="imagenes/splashscreen/ldpi.png"  gap:platform="android" gap:density="ldpi" />
+   <!-- <gap:splash src="imagenes/splashscreen/ldpi.png"  gap:platform="android" gap:density="ldpi" />
     <gap:splash src="imagenes/splashscreen/mdpi.png"  gap:platform="android" gap:density="mdpi" />
-    <gap:splash src="imagenes/splashscreen/hdpi.png"  gap:platform="android" gap:density="hdpi" />
-    <gap:splash src="imagenes/splashscreen/xhdpi.png" gap:platform="android" gap:density="xhdpi" />
+    <gap:splash src="imagenes/splashscreen/xhdpi.png" gap:platform="android" gap:density="xhdpi" />-->
+	<gap:splash src="imagenes/splashscreen/hdpi.png"  gap:platform="android" gap:density="hdpi" />
     
 	
 	
