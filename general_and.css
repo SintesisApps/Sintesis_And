@@ -813,10 +813,12 @@ body{
 /*Mapa*/
 #map_canvas
 {
-/*
-	width:50%;
-	height:50%;
-	margin-left:0px;
+
+	width:200px;
+	height:200px;
+	position:absolute;
+	background:#FFF;
+	/*margin-left:0px;
 	margin-top:0px;*/
 }
 
